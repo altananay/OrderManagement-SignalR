@@ -15,3 +15,6 @@ C:\Users\altan\source\repos\SignalR\Backend\Persistence\obj\Debug\net8.0\refint\
 C:\Users\altan\source\repos\SignalR\Backend\Persistence\obj\Debug\net8.0\Persistence.pdb
 C:\Users\altan\source\repos\SignalR\Backend\Persistence\obj\Debug\net8.0\Persistence.genruntimeconfig.cache
 C:\Users\altan\source\repos\SignalR\Backend\Persistence\obj\Debug\net8.0\ref\Persistence.dll
+C:\Users\altan\source\repos\SignalR\Backend\Persistence\obj\Debug\net8.0\Persistence.sourcelink.json
+C:\Users\altan\source\repos\SignalR\Backend\Persistence\bin\Debug\net8.0\Application.dll
+C:\Users\altan\source\repos\SignalR\Backend\Persistence\bin\Debug\net8.0\Application.pdb

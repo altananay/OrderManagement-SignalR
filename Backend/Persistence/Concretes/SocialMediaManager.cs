@@ -16,9 +16,9 @@ public class SocialMediaManager(ISocialMediaRepository repository) : ISocialMedi
         repository.Delete(entity);
     }
 
-    public List<SocialMedia> GetAll()
+    public async Task<List<SocialMedia>> GetAll()
     {
-        return repository.GetAll();
+        return await repository.GetAll();
     }
 
     public SocialMedia GetById(Guid id)

@@ -5,5 +5,5 @@ namespace Application.Abstractions;
 
 public interface IProductService : IGenericService<Product>
 {
-
+    Task<List<Product>> GetAllProductsWithCategoriesAsync();
 }

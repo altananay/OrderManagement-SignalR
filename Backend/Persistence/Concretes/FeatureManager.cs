@@ -16,9 +16,9 @@ public class FeatureManager(IFeatureRepository repository) : IFeatureService
         repository.Delete(entity);
     }
 
-    public List<Feature> GetAll()
+    public async Task<List<Feature>> GetAll()
     {
-        return repository.GetAll();
+        return await repository.GetAll();
     }
 
     public Feature GetById(Guid id)

@@ -16,9 +16,9 @@ public class AboutManager(IAboutRepository repository) : IAboutService
         repository.Delete(entity);
     }
 
-    public List<About> GetAll()
+    public async Task<List<About>> GetAll()
     {
-        return repository.GetAll();
+        return await repository.GetAll();
     }
 
     public About GetById(Guid id)

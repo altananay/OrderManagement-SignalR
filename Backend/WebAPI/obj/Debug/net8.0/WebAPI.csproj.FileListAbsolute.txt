@@ -138,3 +138,8 @@ C:\Users\altan\source\repos\SignalR\Backend\WebAPI\bin\Debug\net8.0\Domain.dll
 C:\Users\altan\source\repos\SignalR\Backend\WebAPI\bin\Debug\net8.0\Persistence.dll
 C:\Users\altan\source\repos\SignalR\Backend\WebAPI\bin\Debug\net8.0\Persistence.pdb
 C:\Users\altan\source\repos\SignalR\Backend\WebAPI\bin\Debug\net8.0\Domain.pdb
+C:\Users\altan\source\repos\SignalR\Backend\WebAPI\obj\Debug\net8.0\WebAPI.sourcelink.json
+C:\Users\altan\source\repos\SignalR\Backend\WebAPI\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\altan\source\repos\SignalR\Backend\WebAPI\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\altan\source\repos\SignalR\Backend\WebAPI\bin\Debug\net8.0\Application.dll
+C:\Users\altan\source\repos\SignalR\Backend\WebAPI\bin\Debug\net8.0\Application.pdb

@@ -6,5 +6,5 @@ public interface IGenericDal<T> where T : class
     void Delete(T entity);
     void Update(T entity);
     T GetById(Guid id);
-    List<T> GetAll();
+    Task<List<T>> GetAll();
 }

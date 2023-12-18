@@ -16,9 +16,9 @@ public class ContactManager(IContactRepository repository) : IContactService
         repository.Delete(entity);
     }
 
-    public List<Contact> GetAll()
+    public async Task<List<Contact>> GetAll()
     {
-        return repository.GetAll();
+        return await repository.GetAll();
     }
 
     public Contact GetById(Guid id)

@@ -16,9 +16,14 @@ public class ProductManager(IProductRepository repository) : IProductService
         repository.Delete(entity);
     }
 
-    public List<Product> GetAll()
+    public async Task<List<Product>> GetAll()
     {
-        return repository.GetAll();
+        return await repository.GetAll();
+    }
+
+    public async Task<List<Product>> GetAllProductsWithCategoriesAsync()
+    {
+        return await repository.GetAllProductsWithCategoriesAsync();
     }
 
     public Product GetById(Guid id)

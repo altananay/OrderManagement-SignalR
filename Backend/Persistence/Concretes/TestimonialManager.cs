@@ -16,9 +16,9 @@ public class TestimonialManager(ITestimonialRepository repository) : ITestimonia
         repository.Delete(entity);
     }
 
-    public List<Testimonial> GetAll()
+    public async Task<List<Testimonial>> GetAll()
     {
-        return repository.GetAll();
+        return await repository.GetAll();
     }
 
     public Testimonial GetById(Guid id)

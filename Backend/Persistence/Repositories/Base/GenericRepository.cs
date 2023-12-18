@@ -1,4 +1,5 @@
 ﻿using Application.Repositories;
+using Microsoft.EntityFrameworkCore;
 using Persistence.Contexts;
 
 namespace Persistence.Repositories.Base;
@@ -17,9 +18,9 @@ public class GenericRepository<T>(SignalRContext _context) : IGenericDal<T> wher
         _context.SaveChanges();
     }
 
-    public List<T> GetAll()
+    public async Task<List<T>> GetAll()
     {
-        return _context.Set<T>().ToList();
+        return await _context.Set<T>().ToListAsync();
     }
 
     public T GetById(Guid id)

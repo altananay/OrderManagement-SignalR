@@ -16,9 +16,9 @@ public class BookingManager(IBookingRepository repository) : IBookingService
         repository.Delete(entity);
     }
 
-    public List<Booking> GetAll()
+    public async Task<List<Booking>> GetAll()
     {
-        return repository.GetAll();
+        return await repository.GetAll();
     }
 
     public Booking GetById(Guid id)

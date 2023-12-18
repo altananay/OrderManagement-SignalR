@@ -50,6 +50,16 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -256,6 +266,9 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "C:\\Users\\altan\\source\\repos\\SignalR\\Backend\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\altan\\source\\repos\\SignalR\\Backend\\Application\\Application.csproj"
+              },
               "C:\\Users\\altan\\source\\repos\\SignalR\\Backend\\Persistence\\Persistence.csproj": {
                 "projectPath": "C:\\Users\\altan\\source\\repos\\SignalR\\Backend\\Persistence\\Persistence.csproj"
               }

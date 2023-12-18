@@ -16,9 +16,9 @@ public class DiscountManager(IDiscountRepository repository) : IDiscountService
         repository.Delete(entity);
     }
 
-    public List<Discount> GetAll()
+    public async Task<List<Discount>> GetAll()
     {
-        return repository.GetAll();
+        return await repository.GetAll();
     }
 
     public Discount GetById(Guid id)

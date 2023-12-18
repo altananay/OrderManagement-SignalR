@@ -16,9 +16,9 @@ public class CategoryManager(ICategoryRepository repository) : ICategoryService
         repository.Delete(entity);
     }
 
-    public List<Category> GetAll()
+    public async Task<List<Category>> GetAll()
     {
-        return repository.GetAll();
+        return await repository.GetAll();
     }
 
     public Category GetById(Guid id)
