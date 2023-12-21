@@ -18,6 +18,8 @@ public static class PersistenceServiceRegistration
         services.AddScoped<IAboutRepository, AboutRepository>();
         services.AddScoped<IProductService, ProductManager>();
         services.AddScoped<IProductRepository, ProductRepository>();
+        services.AddScoped<ICategoryService, CategoryManager>();
+        services.AddScoped<ICategoryRepository, CategoryRepository>();
         return services;
     }
 }
