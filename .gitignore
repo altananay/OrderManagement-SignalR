@@ -396,3 +396,25 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+[Oo]bj
+[Bb]in
+*.user
+*.suo
+*.[Cc]ache
+*.bak
+*.ncb
+*.log 
+*.DS_Store
+[Tt]humbs.db 
+_ReSharper.*
+*.resharper
+Ankh.NoLoad
+
+bin/
+obj/
+*.suo
+*.user
+
+Frontend/WebUI/obj/
+Frontend/WebUI/bin/
