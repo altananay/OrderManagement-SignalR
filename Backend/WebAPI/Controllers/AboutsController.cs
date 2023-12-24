@@ -14,21 +14,21 @@ namespace WebAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var values = await _mapper.Map<Task<List<GetAllAboutsResponse>>>(_aboutService.GetAll());
+            var values = await _mapper.Map<Task<List<GetAllAboutsResponse>>>(_aboutService.GetAllAsync());
             return Ok(values);
         }
 
         [HttpPost]
         public async Task<IActionResult> CreateAbout(CreateAboutRequest request)
         {
-            _aboutService.Add(_mapper.Map<CreateAboutRequest, About>(request));
+            await _aboutService.AddAsync(_mapper.Map<CreateAboutRequest, About>(request));
             return Ok();
         }
 
         [HttpDelete]
         public async Task<IActionResult> DeleteAbout(Guid id)
         {
-            var value = _aboutService.GetById(id);
+            var value = await _aboutService.GetByIdAsync(id);
             _aboutService.Delete(value);
             return Ok();
         }
@@ -43,7 +43,7 @@ namespace WebAPI.Controllers
         [HttpGet("/api/{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            return Ok(_aboutService.GetById(id));
+            return Ok(await _aboutService.GetByIdAsync(id));
         }
     }
 }

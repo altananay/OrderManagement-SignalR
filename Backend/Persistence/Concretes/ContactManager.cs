@@ -6,9 +6,9 @@ namespace Persistence.Concretes;
 
 public class ContactManager(IContactRepository repository) : IContactService
 {
-    public void Add(Contact entity)
+    public async Task<Contact> AddAsync(Contact entity)
     {
-        repository.Add(entity);
+        return await repository.AddAsync(entity);
     }
 
     public void Delete(Contact entity)
@@ -16,14 +16,14 @@ public class ContactManager(IContactRepository repository) : IContactService
         repository.Delete(entity);
     }
 
-    public async Task<List<Contact>> GetAll()
+    public async Task<List<Contact>> GetAllAsync()
     {
-        return await repository.GetAll();
+        return await repository.GetAllAsync();
     }
 
-    public Contact GetById(Guid id)
+    public async Task<Contact> GetByIdAsync(Guid id)
     {
-        return repository.GetById(id);
+        return await repository.GetByIdAsync(id);
     }
 
     public void Update(Contact entity)

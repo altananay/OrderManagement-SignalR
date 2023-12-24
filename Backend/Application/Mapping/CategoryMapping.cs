@@ -1,4 +1,5 @@
-﻿using Application.Responses.Category;
+﻿using Application.Requests.Category;
+using Application.Responses.Category;
 using AutoMapper;
 using Domain.Entities;
 
@@ -11,6 +12,7 @@ public class CategoryMapping : Profile
         CreateMap<Task<List<GetAllCategoriesResponse>>, Task<List<Category>>>().ReverseMap();
         CreateMap<GetAllCategoriesResponse, Category>().ReverseMap();
         CreateMap<GetCategoryResponse, Category>().ReverseMap();
-
+        CreateMap<CreateCategoryRequest, Category>().ReverseMap();
+        CreateMap<UpdateCategoryRequest, Category>().ReverseMap();
     }
 }

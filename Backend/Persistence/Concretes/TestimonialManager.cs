@@ -6,9 +6,9 @@ namespace Persistence.Concretes;
 
 public class TestimonialManager(ITestimonialRepository repository) : ITestimonialService
 {
-    public void Add(Testimonial entity)
+    public async Task<Testimonial> AddAsync(Testimonial entity)
     {
-        repository.Add(entity);
+        return await repository.AddAsync(entity);
     }
 
     public void Delete(Testimonial entity)
@@ -16,14 +16,14 @@ public class TestimonialManager(ITestimonialRepository repository) : ITestimonia
         repository.Delete(entity);
     }
 
-    public async Task<List<Testimonial>> GetAll()
+    public async Task<List<Testimonial>> GetAllAsync()
     {
-        return await repository.GetAll();
+        return await repository.GetAllAsync();
     }
 
-    public Testimonial GetById(Guid id)
+    public async Task<Testimonial> GetByIdAsync(Guid id)
     {
-        return repository.GetById(id);
+        return await repository.GetByIdAsync(id);
     }
 
     public void Update(Testimonial entity)

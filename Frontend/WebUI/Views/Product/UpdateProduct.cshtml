@@ -1,0 +1,58 @@
+﻿@model UpdateProductRequest
+
+@{
+    ViewData["Title"] = "UpdateProduct";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Ürün İşlemleri</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Ürün Güncelleme</div>
+                        </div>
+                        <input type="hidden" asp-for="Id"/>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Name">Ürün Adı</label>
+                                <input type="text" class="form-control" asp-for="Name" id="Name" placeholder="Enter Category Name">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Price">Ürün Fiyatı</label>
+                                <input type="text" class="form-control" asp-for="Price" id="Price" placeholder="Enter Category Name">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="ImageUrl">Ürün Görseli</label>
+                                <input type="text" class="form-control" asp-for="ImageUrl" id="ImageUrl" placeholder="Enter Category Name">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Category">Ürünün Kategorisi</label>
+                                @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.viewbag, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Description">Ürün Açıklaması</label>
+                                <input type="text" class="form-control" asp-for="Description" id="Description" placeholder="Enter Category Name">
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <button class="btn btn-success">Güncelle</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

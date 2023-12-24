@@ -6,9 +6,9 @@ namespace Persistence.Concretes;
 
 public class FeatureManager(IFeatureRepository repository) : IFeatureService
 {
-    public void Add(Feature entity)
+    public async Task<Feature> AddAsync(Feature entity)
     {
-        repository.Add(entity);
+        return await repository.AddAsync(entity);
     }
 
     public void Delete(Feature entity)
@@ -16,14 +16,14 @@ public class FeatureManager(IFeatureRepository repository) : IFeatureService
         repository.Delete(entity);
     }
 
-    public async Task<List<Feature>> GetAll()
+    public async Task<List<Feature>> GetAllAsync()
     {
-        return await repository.GetAll();
+        return await repository.GetAllAsync();
     }
 
-    public Feature GetById(Guid id)
+    public async Task<Feature> GetByIdAsync(Guid id)
     {
-        return repository.GetById(id);
+        return await repository.GetByIdAsync(id);
     }
 
     public void Update(Feature entity)

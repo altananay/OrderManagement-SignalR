@@ -6,9 +6,9 @@ namespace Persistence.Concretes;
 
 public class ProductManager(IProductRepository repository) : IProductService
 {
-    public void Add(Product entity)
+    public async Task<Product> AddAsync(Product entity)
     {
-        repository.Add(entity);
+        return await repository.AddAsync(entity);
     }
 
     public void Delete(Product entity)
@@ -16,9 +16,9 @@ public class ProductManager(IProductRepository repository) : IProductService
         repository.Delete(entity);
     }
 
-    public async Task<List<Product>> GetAll()
+    public async Task<List<Product>> GetAllAsync()
     {
-        return await repository.GetAll();
+        return await repository.GetAllAsync();
     }
 
     public async Task<List<Product>> GetAllProductsWithCategoriesAsync()
@@ -26,9 +26,14 @@ public class ProductManager(IProductRepository repository) : IProductService
         return await repository.GetAllProductsWithCategoriesAsync();
     }
 
-    public Product GetById(Guid id)
+    public async Task<Product> GetByIdAsync(Guid id)
     {
-        return repository.GetById(id);
+        return await repository.GetByIdAsync(id);
+    }
+
+    public async Task<Product> GetProductWithCategoryAsync(Guid id)
+    {
+        return await repository.GetProductWithCategoryAsync(id);
     }
 
     public void Update(Product entity)

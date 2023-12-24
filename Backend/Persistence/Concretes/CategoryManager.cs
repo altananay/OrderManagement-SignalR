@@ -6,9 +6,9 @@ namespace Persistence.Concretes;
 
 public class CategoryManager(ICategoryRepository repository) : ICategoryService
 {
-    public void Add(Category entity)
+    public async Task<Category> AddAsync(Category entity)
     {
-        repository.Add(entity);
+        return await repository.AddAsync(entity);
     }
 
     public void Delete(Category entity)
@@ -16,14 +16,14 @@ public class CategoryManager(ICategoryRepository repository) : ICategoryService
         repository.Delete(entity);
     }
 
-    public async Task<List<Category>> GetAll()
+    public async Task<List<Category>> GetAllAsync()
     {
-        return await repository.GetAll();
+        return await repository.GetAllAsync();
     }
 
-    public Category GetById(Guid id)
+    public async Task<Category> GetByIdAsync(Guid id)
     {
-        return repository.GetById(id);
+        return await repository.GetByIdAsync(id);
     }
 
     public void Update(Category entity)

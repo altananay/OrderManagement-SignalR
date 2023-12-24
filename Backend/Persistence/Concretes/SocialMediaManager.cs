@@ -6,9 +6,9 @@ namespace Persistence.Concretes;
 
 public class SocialMediaManager(ISocialMediaRepository repository) : ISocialMediaService
 {
-    public void Add(SocialMedia entity)
+    public async Task<SocialMedia> AddAsync(SocialMedia entity)
     {
-        repository.Add(entity);
+        return await repository.AddAsync(entity);
     }
 
     public void Delete(SocialMedia entity)
@@ -16,14 +16,14 @@ public class SocialMediaManager(ISocialMediaRepository repository) : ISocialMedi
         repository.Delete(entity);
     }
 
-    public async Task<List<SocialMedia>> GetAll()
+    public async Task<List<SocialMedia>> GetAllAsync()
     {
-        return await repository.GetAll();
+        return await repository.GetAllAsync();
     }
 
-    public SocialMedia GetById(Guid id)
+    public async Task<SocialMedia> GetByIdAsync(Guid id)
     {
-        return repository.GetById(id);
+        return await repository.GetByIdAsync(id);
     }
 
     public void Update(SocialMedia entity)

@@ -6,10 +6,11 @@ namespace Persistence.Repositories.Base;
 
 public class GenericRepository<T>(SignalRContext _context) : IGenericDal<T> where T : class
 {
-    public void Add(T entity)
+    public async Task<T> AddAsync(T entity)
     {
-        _context.Add(entity);
-        _context.SaveChanges();
+        await _context.AddAsync(entity);
+        await _context.SaveChangesAsync();
+        return entity;
     }
 
     public void Delete(T entity)
@@ -18,14 +19,14 @@ public class GenericRepository<T>(SignalRContext _context) : IGenericDal<T> wher
         _context.SaveChanges();
     }
 
-    public async Task<List<T>> GetAll()
+    public async Task<List<T>> GetAllAsync()
     {
         return await _context.Set<T>().ToListAsync();
     }
 
-    public T GetById(Guid id)
+    public async Task<T> GetByIdAsync(Guid id)
     {
-        return _context.Set<T>().Find(id);
+        return await _context.Set<T>().FindAsync(id);
     }
 
     public void Update(T entity)

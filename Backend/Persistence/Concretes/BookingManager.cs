@@ -6,9 +6,9 @@ namespace Persistence.Concretes;
 
 public class BookingManager(IBookingRepository repository) : IBookingService
 {
-    public void Add(Booking entity)
+    public async Task<Booking> AddAsync(Booking entity)
     {
-        repository.Add(entity);
+        return await repository.AddAsync(entity);
     }
 
     public void Delete(Booking entity)
@@ -16,14 +16,14 @@ public class BookingManager(IBookingRepository repository) : IBookingService
         repository.Delete(entity);
     }
 
-    public async Task<List<Booking>> GetAll()
+    public async Task<List<Booking>> GetAllAsync()
     {
-        return await repository.GetAll();
+        return await repository.GetAllAsync();
     }
 
-    public Booking GetById(Guid id)
+    public async Task<Booking> GetByIdAsync(Guid id)
     {
-        return repository.GetById(id);
+        return await repository.GetByIdAsync(id);
     }
 
     public void Update(Booking entity)

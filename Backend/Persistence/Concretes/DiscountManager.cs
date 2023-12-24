@@ -6,9 +6,9 @@ namespace Persistence.Concretes;
 
 public class DiscountManager(IDiscountRepository repository) : IDiscountService
 {
-    public void Add(Discount entity)
+    public async Task<Discount> AddAsync(Discount entity)
     {
-        repository.Add(entity);
+        return await repository.AddAsync(entity);
     }
 
     public void Delete(Discount entity)
@@ -16,14 +16,14 @@ public class DiscountManager(IDiscountRepository repository) : IDiscountService
         repository.Delete(entity);
     }
 
-    public async Task<List<Discount>> GetAll()
+    public async Task<List<Discount>> GetAllAsync()
     {
-        return await repository.GetAll();
+        return await repository.GetAllAsync();
     }
 
-    public Discount GetById(Guid id)
+    public async Task<Discount> GetByIdAsync(Guid id)
     {
-        return repository.GetById(id);
+        return await repository.GetByIdAsync(id);
     }
 
     public void Update(Discount entity)

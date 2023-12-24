@@ -6,9 +6,9 @@ namespace Persistence.Concretes;
 
 public class AboutManager(IAboutRepository repository) : IAboutService
 {
-    public void Add(About entity)
+    public async Task<About> AddAsync(About entity)
     {
-        repository.Add(entity);
+        return await repository.AddAsync(entity);
     }
 
     public void Delete(About entity)
@@ -16,14 +16,14 @@ public class AboutManager(IAboutRepository repository) : IAboutService
         repository.Delete(entity);
     }
 
-    public async Task<List<About>> GetAll()
+    public async Task<List<About>> GetAllAsync()
     {
-        return await repository.GetAll();
+        return await repository.GetAllAsync();
     }
 
-    public About GetById(Guid id)
+    public async Task<About> GetByIdAsync(Guid id)
     {
-        return repository.GetById(id);
+        return await repository.GetByIdAsync(id);
     }
 
     public void Update(About entity)

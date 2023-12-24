@@ -5,4 +5,5 @@ namespace Application.Repositories;
 public interface IProductRepository : IGenericDal<Product>
 {
     Task<List<Product>> GetAllProductsWithCategoriesAsync();
+    Task<Product> GetProductWithCategoryAsync(Guid id);
 }

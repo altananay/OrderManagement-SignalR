@@ -19,4 +19,9 @@ public class ProductRepository : GenericRepository<Product>, IProductRepository
     {
         return await _context.Products.Include(x => x.Category).ToListAsync();
     }
+
+    public async Task<Product> GetProductWithCategoryAsync(Guid id)
+    {
+        return await _context.Products.Include(x => x.Category).Where(x => x.Id == id).FirstOrDefaultAsync();
+    }
 }
