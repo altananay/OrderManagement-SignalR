@@ -1,6 +1,6 @@
-﻿namespace Application.Responses.About;
+﻿namespace WebUI.Dtos.Responses.About;
 
-public class CreateAboutResponse
+public class GetAllAboutsResponse
 {
     public Guid Id { get; set; }
     public string ImageUrl { get; set; }

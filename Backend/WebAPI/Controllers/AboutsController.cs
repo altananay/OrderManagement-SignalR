@@ -40,7 +40,7 @@ namespace WebAPI.Controllers
             return Ok();
         }
 
-        [HttpGet("/api/{id}")]
+        [HttpGet("/api/About/{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
             return Ok(await _aboutService.GetByIdAsync(id));

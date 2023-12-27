@@ -9,7 +9,6 @@ public class AboutMapping : Profile
 {
     public AboutMapping() { 
         CreateMap<About, CreateAboutRequest>().ReverseMap();
-        CreateMap<About, CreateAboutResponse>().ReverseMap();
         CreateMap<About, UpdateAboutRequest>().ReverseMap();
         CreateMap<About, GetAboutResponse>().ReverseMap();
         CreateMap<About, GetAllAboutsResponse>().ReverseMap();
