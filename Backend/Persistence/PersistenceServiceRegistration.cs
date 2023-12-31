@@ -22,6 +22,16 @@ public static class PersistenceServiceRegistration
         services.AddScoped<ICategoryRepository, CategoryRepository>();
         services.AddScoped<IBookingRepository, BookingRepository>();
         services.AddScoped<IBookingService, BookingManager>();
+        services.AddScoped<IContactService, ContactManager>();
+        services.AddScoped<IContactRepository, ContactRepository>();
+        services.AddScoped<IDiscountService, DiscountManager>();
+        services.AddScoped<IDiscountRepository, DiscountRepository>();
+        services.AddScoped<IFeatureRepository, FeatureRepository>();
+        services.AddScoped<IFeatureService, FeatureManager>();
+        services.AddScoped<ISocialMediaRepository, SocialMediaRepository>();
+        services.AddScoped<ISocialMediaService, SocialMediaManager>();
+        services.AddScoped<ITestimonialRepository, TestimonialRepository>();
+        services.AddScoped<ITestimonialService, TestimonialManager>();
         return services;
     }
 }

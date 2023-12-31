@@ -1,0 +1,45 @@
+﻿@model UpdateSocialMediaRequest
+
+@{
+    ViewData["Title"] = "UpdateSocialMedia";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Sosyal Medya Güncelle</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Sosyal Medya Güncelle</div>
+                        </div>
+                        <input type="hidden" asp-for="Id" />
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Title">Başlık Adı</label>
+                                <input type="text" class="form-control" asp-for="Title" id="Title" placeholder="Enter Category Name">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="ImageUrl">Image Gir</label>
+                                <input type="text" class="form-control" asp-for="ImageUrl" id="ImageUrl" placeholder="Enter Category Name">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="AccountUrl">Link Gir</label>
+                                <input type="text" class="form-control" asp-for="AccountUrl" id="AccountUrl" placeholder="Enter Category Name">
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <button class="btn btn-success">Sosyal Medya Güncelle</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

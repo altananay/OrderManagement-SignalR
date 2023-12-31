@@ -1,0 +1,52 @@
+﻿@model UpdateDiscountRequest
+
+
+@{
+    ViewData["Title"] = "UpdateDiscount";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Ürün indirimi Güncelle</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Ürün indirimi Güncelle</div>
+                        </div>
+                        <input type="hidden" asp-for="Id" />
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Title">Ürün Adı</label>
+                                <input type="text" class="form-control" asp-for="Title" id="Title" placeholder="Enter Category Name">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Amount">İndirim oranı Adı</label>
+                                <input type="text" class="form-control" asp-for="Amount" id="Amount" placeholder="Enter Category Name">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="ImageUrl">Ürün görseli</label>
+                                <input type="text" class="form-control" asp-for="ImageUrl" id="ImageUrl" placeholder="Enter Category Name">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Description">Açıklama</label>
+                                <textarea type="text" class="form-control" asp-for="Description" id="Description" placeholder="Enter Category Name"></textarea>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <button class="btn btn-success">Güncelle</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

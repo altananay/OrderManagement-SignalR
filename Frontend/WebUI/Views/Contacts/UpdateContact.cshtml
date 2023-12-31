@@ -1,0 +1,51 @@
+﻿@model UpdateContactRequest
+
+@{
+    ViewData["Title"] = "UpdateContact";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Contact Ekle</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Contact Ekle</div>
+                        </div>
+                        <input type="hidden" asp-for="Id"/>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Location">Lokasyonu girin</label>
+                                <input type="text" class="form-control" asp-for="Location" id="Location" placeholder="Enter Category Name">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Phone">Telefon no gir</label>
+                                <input type="text" class="form-control" asp-for="Phone" id="Phone" placeholder="Enter Category Name">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Email">Mail Adresi Gir</label>
+                                <textarea rows="5" type="text" class="form-control" asp-for="Email" id="Email" placeholder="Enter Category Name"></textarea>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Description">Açıklamayı Gir</label>
+                                <textarea rows="5" type="text" class="form-control" asp-for="Description" id="Description" placeholder="Enter Category Name"></textarea>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <button class="btn btn-success">Güncelle</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
