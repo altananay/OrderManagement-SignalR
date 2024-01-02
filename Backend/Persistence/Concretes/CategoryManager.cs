@@ -30,4 +30,19 @@ public class CategoryManager(ICategoryRepository repository) : ICategoryService
     {
         repository.Update(entity);
     }
+
+    public int GetCategoryCount()
+    {
+        return repository.GetCategoryCount();
+    }
+
+    public int GetActiveCategoryCount()
+    {
+        return repository.GetActiveCategoryCount();
+    }
+
+    public int GetPassiveCategoryCount()
+    {
+        return repository.GetPassiveCategoryCount();
+    }
 }

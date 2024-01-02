@@ -24,4 +24,19 @@ public class ProductRepository : GenericRepository<Product>, IProductRepository
     {
         return await _context.Products.Include(x => x.Category).Where(x => x.Id == id).FirstOrDefaultAsync();
     }
+
+    public int GetProductCount()
+    {
+        return _context.Products.Count();
+    }
+
+    public int GetProductCountByCategoryNameHamburger()
+    {
+        return _context.Products.Where(x => x.CategoryId == (_context.Categories.Where(y => y.Name == "Hamburger").Select(z => z.Id).FirstOrDefault())).Count();
+    }
+
+    public int GetProductCountByCategoryNameDrink()
+    {
+        return _context.Products.Where(x => x.CategoryId == (_context.Categories.Where(y => y.Name == "Drink").Select(z => z.Id).FirstOrDefault())).Count();
+    }
 }

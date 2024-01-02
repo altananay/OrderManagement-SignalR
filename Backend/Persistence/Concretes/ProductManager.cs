@@ -40,4 +40,19 @@ public class ProductManager(IProductRepository repository) : IProductService
     {
         repository.Update(entity);
     }
+
+    public int GetProductCount()
+    {
+        return repository.GetProductCount();
+    }
+
+    public int GetProductCountByCategoryNameHamburger()
+    {
+        return repository.GetProductCountByCategoryNameHamburger();
+    }
+
+    public int GetProductCountByCategoryNameDrink()
+    {
+        return repository.GetProductCountByCategoryNameDrink();
+    }
 }

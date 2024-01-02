@@ -7,4 +7,7 @@ public interface IProductService : IGenericService<Product>
 {
     Task<List<Product>> GetAllProductsWithCategoriesAsync();
     Task<Product> GetProductWithCategoryAsync(Guid id);
+    int GetProductCount();
+    int GetProductCountByCategoryNameHamburger();
+    int GetProductCountByCategoryNameDrink();
 }

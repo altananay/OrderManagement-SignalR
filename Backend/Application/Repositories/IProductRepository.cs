@@ -6,4 +6,7 @@ public interface IProductRepository : IGenericDal<Product>
 {
     Task<List<Product>> GetAllProductsWithCategoriesAsync();
     Task<Product> GetProductWithCategoryAsync(Guid id);
+    int GetProductCount();
+    int GetProductCountByCategoryNameHamburger();
+    int GetProductCountByCategoryNameDrink();
 }
