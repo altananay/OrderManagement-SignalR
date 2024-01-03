@@ -67,4 +67,22 @@ public class ProductsController(IProductService _productService, IMapper _mapper
     {
         return Ok(_productService.GetProductCountByCategoryNameDrink());
     }
+
+    [HttpGet("/api/GetProductPriceAverage")]
+    public async Task<IActionResult> GetProductPriceAverage()
+    {
+        return Ok(await _productService.GetProductPriceAverage());
+    }
+
+    [HttpGet("/api/GetProductNameByMaxPrice")]
+    public async Task<IActionResult> GetProductNameByMaxPrice()
+    {
+        return Ok(await _productService.GetProductNameByMaxPrice());
+    }
+
+    [HttpGet("/api/GetProductNameByMinPrice")]
+    public async Task<IActionResult> GetProductNameByMinPrice()
+    {
+        return Ok(await _productService.GetProductNameByMinPrice());
+    }
 }

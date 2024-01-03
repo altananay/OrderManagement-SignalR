@@ -12,4 +12,6 @@ public class Product
 
     //one-to-many
     public Category Category { get; set; }
+
+    public List<OrderDetail> OrderDetails { get; set;}
 }

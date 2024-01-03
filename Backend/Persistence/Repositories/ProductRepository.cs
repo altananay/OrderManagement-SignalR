@@ -39,4 +39,19 @@ public class ProductRepository : GenericRepository<Product>, IProductRepository
     {
         return _context.Products.Where(x => x.CategoryId == (_context.Categories.Where(y => y.Name == "Drink").Select(z => z.Id).FirstOrDefault())).Count();
     }
+
+    public async Task<decimal> GetProductPriceAverage()
+    {
+        return await _context.Products.AverageAsync(p => p.Price);
+    }
+
+    public async Task<string> ProductNameByMaxPrice()
+    {
+        return await _context.Products.Where(p => p.Price == (_context.Products.Max(p => p.Price))).Select(p => p.Name).FirstOrDefaultAsync();
+    }
+
+    public async Task<string> ProductNameByMinPrice()
+    {
+        return await _context.Products.Where(p => p.Price == (_context.Products.Min(p => p.Price))).Select(p => p.Name).FirstOrDefaultAsync();
+    }
 }

@@ -55,4 +55,19 @@ public class ProductManager(IProductRepository repository) : IProductService
     {
         return repository.GetProductCountByCategoryNameDrink();
     }
+
+    public async Task<decimal> GetProductPriceAverage()
+    {
+        return await repository.GetProductPriceAverage();
+    }
+
+    public async Task<string> GetProductNameByMaxPrice()
+    {
+        return await repository.ProductNameByMaxPrice();
+    }
+
+    public async Task<string> GetProductNameByMinPrice()
+    {
+        return await repository.ProductNameByMinPrice();
+    }
 }

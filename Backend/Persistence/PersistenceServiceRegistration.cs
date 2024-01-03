@@ -32,6 +32,10 @@ public static class PersistenceServiceRegistration
         services.AddScoped<ISocialMediaService, SocialMediaManager>();
         services.AddScoped<ITestimonialRepository, TestimonialRepository>();
         services.AddScoped<ITestimonialService, TestimonialManager>();
+        services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
+        services.AddScoped<IOrderDetailService, OrderDetailManager>();
+        services.AddScoped<IOrderRepository, OrderRepository>();
+        services.AddScoped<IOrderService, OrderManager>();
         return services;
     }
 }
