@@ -85,4 +85,10 @@ public class ProductsController(IProductService _productService, IMapper _mapper
     {
         return Ok(await _productService.GetProductNameByMinPrice());
     }
+
+    [HttpGet("/api/GetAveragePriceHamburger")]
+    public async Task<IActionResult> GetAverageHamburgerPrice()
+    {
+        return Ok(await _productService.GetAverageHamburgerPrice());
+    }
 }

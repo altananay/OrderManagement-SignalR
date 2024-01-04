@@ -30,4 +30,19 @@ public class OrderManager(IOrderRepository _repository) : IOrderService
     {
         _repository.Update(entity);
     }
+
+    public async Task<int> GetOrderCount()
+    {
+        return await _repository.GetOrderCount();
+    }
+
+    public async Task<int> GetActiveOrderCount()
+    {
+        return await _repository.GetActiveOrderCount();
+    }
+
+    public async Task<decimal> GetLastOrderPrice()
+    {
+        return await _repository.GetLastOrderPrice();
+    }
 }

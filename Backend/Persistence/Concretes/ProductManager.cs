@@ -70,4 +70,9 @@ public class ProductManager(IProductRepository repository) : IProductService
     {
         return await repository.ProductNameByMinPrice();
     }
+
+    public async Task<decimal> GetAverageHamburgerPrice()
+    {
+        return await repository.GetAverageHamburgerPrice();
+    }
 }

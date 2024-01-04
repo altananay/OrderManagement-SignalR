@@ -12,4 +12,5 @@ public interface IProductRepository : IGenericDal<Product>
     Task<decimal> GetProductPriceAverage();
     Task<string> ProductNameByMaxPrice();
     Task<string> ProductNameByMinPrice();
+    Task<decimal> GetAverageHamburgerPrice();
 }

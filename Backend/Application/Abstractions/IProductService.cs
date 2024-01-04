@@ -13,4 +13,5 @@ public interface IProductService : IGenericService<Product>
     Task<decimal> GetProductPriceAverage();
     Task<string> GetProductNameByMaxPrice();
     Task<string> GetProductNameByMinPrice();
+    Task<decimal> GetAverageHamburgerPrice();
 }

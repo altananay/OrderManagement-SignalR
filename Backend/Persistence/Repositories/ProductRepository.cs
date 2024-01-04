@@ -54,4 +54,9 @@ public class ProductRepository : GenericRepository<Product>, IProductRepository
     {
         return await _context.Products.Where(p => p.Price == (_context.Products.Min(p => p.Price))).Select(p => p.Name).FirstOrDefaultAsync();
     }
+
+    public async Task<decimal> GetAverageHamburgerPrice()
+    {
+        return await _context.Products.Where(p => p.CategoryId == (_context.Categories.Where(c => c.Name == "Hamburger").Select(c => c.Id).FirstOrDefault())).AverageAsync(p => p.Price);
+    }
 }
