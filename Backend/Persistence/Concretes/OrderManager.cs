@@ -45,4 +45,9 @@ public class OrderManager(IOrderRepository _repository) : IOrderService
     {
         return await _repository.GetLastOrderPrice();
     }
+
+    public async Task<decimal> GetTodayTotalPrice()
+    {
+        return await _repository.GetTodayTotalPrice();
+    }
 }

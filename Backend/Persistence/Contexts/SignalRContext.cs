@@ -20,6 +20,7 @@ public class SignalRContext : DbContext
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderDetail> OrderDetails { get; set; }
     public DbSet<MoneyCase> MoneyCases { get; set; }
+    public DbSet<Table> Tables { get; set; }
 
     public SignalRContext(DbContextOptions options, IConfiguration configuration) : base(options)
     {

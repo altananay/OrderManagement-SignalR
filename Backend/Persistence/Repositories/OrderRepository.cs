@@ -29,4 +29,9 @@ public class OrderRepository : GenericRepository<Order>, IOrderRepository
     {
         return await _context.Orders.OrderByDescending(o => o.Date).Take(1).Select(o => o.TotalPrice).FirstOrDefaultAsync();
     }
+
+    public async Task<decimal> GetTodayTotalPrice()
+    {
+        return await _context.Orders.Where(o => o.Date.Date == DateTime.Today).SumAsync(y => y.TotalPrice);
+    }
 }

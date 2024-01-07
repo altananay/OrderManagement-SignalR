@@ -45,9 +45,19 @@ public class ProductRepository : GenericRepository<Product>, IProductRepository
         return await _context.Products.AverageAsync(p => p.Price);
     }
 
+    public decimal GetProductPriceAverageForSignalR()
+    {
+        return _context.Products.Average(p => p.Price);
+    }
+
     public async Task<string> ProductNameByMaxPrice()
     {
         return await _context.Products.Where(p => p.Price == (_context.Products.Max(p => p.Price))).Select(p => p.Name).FirstOrDefaultAsync();
+    }
+
+    public string GetProductNameByMaxPriceForSignalR()
+    {
+        return _context.Products.Where(p => p.Price == (_context.Products.Max(p => p.Price))).Select(p => p.Name).FirstOrDefault();
     }
 
     public async Task<string> ProductNameByMinPrice()

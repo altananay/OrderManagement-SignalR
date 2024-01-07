@@ -38,6 +38,8 @@ public static class PersistenceServiceRegistration
         services.AddScoped<IOrderService, OrderManager>();
         services.AddScoped<IMoneyCaseRepository, MoneyCaseRepository>();
         services.AddScoped<IMoneyCaseService, MoneyCaseManager>();
+        services.AddScoped<ITableRepository, TableRepository>();
+        services.AddScoped<ITableService, TableManager>();
         return services;
     }
 }

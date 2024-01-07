@@ -24,4 +24,10 @@ public class OrdersController(IOrderService _orderService) : ControllerBase
     {
         return Ok(await _orderService.GetLastOrderPrice());
     }
+
+    [HttpGet("/api/GetTodayTotalPrice")]
+    public async Task<IActionResult> GetTodayTotalPrice()
+    {
+        return Ok(await _orderService.GetTodayTotalPrice());
+    }
 }

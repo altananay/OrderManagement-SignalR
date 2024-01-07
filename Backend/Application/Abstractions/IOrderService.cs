@@ -8,4 +8,5 @@ public interface IOrderService : IGenericService<Order>
     Task<int> GetOrderCount();
     Task<int> GetActiveOrderCount();
     Task<decimal> GetLastOrderPrice();
+    Task<decimal> GetTodayTotalPrice();
 }

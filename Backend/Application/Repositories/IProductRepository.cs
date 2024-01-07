@@ -9,6 +9,8 @@ public interface IProductRepository : IGenericDal<Product>
     int GetProductCount();
     int GetProductCountByCategoryNameHamburger();
     int GetProductCountByCategoryNameDrink();
+    decimal GetProductPriceAverageForSignalR();
+    string GetProductNameByMaxPriceForSignalR();
     Task<decimal> GetProductPriceAverage();
     Task<string> ProductNameByMaxPrice();
     Task<string> ProductNameByMinPrice();
