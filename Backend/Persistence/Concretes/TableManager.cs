@@ -35,4 +35,9 @@ public class TableManager(ITableRepository _repository) : ITableService
     {
         return await _repository.GetTableCount();
     }
+
+    public int GetTableCountForSignalR()
+    {
+        return _repository.GetTableCountForSignalR();
+    }
 }

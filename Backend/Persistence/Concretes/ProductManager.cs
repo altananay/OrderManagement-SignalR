@@ -85,4 +85,14 @@ public class ProductManager(IProductRepository repository) : IProductService
     {
         return repository.GetProductNameByMaxPriceForSignalR();
     }
+
+    public string GetProductNameByMinPriceForSignalR()
+    {
+        return repository.GetProductNameByMinPriceForSignalR();
+    }
+
+    public decimal GetAverageHamburgerPriceForSignalR()
+    {
+        return repository.GetAverageHamburgerPriceForSignalR();
+    }
 }

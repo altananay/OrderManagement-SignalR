@@ -59,4 +59,52 @@ public class SignalRHub: Hub
         var value = _entityServices._productService.GetProductNameByMaxPriceForSignalR();
         await Clients.All.SendAsync("ReceiveProductWithHighestPrice", value);
     }
+
+    public async Task SendProductWithMinPrice()
+    {
+        var value = _entityServices._productService.GetProductNameByMinPriceForSignalR();
+        await Clients.All.SendAsync("ReceiveProductWithMinPrice", value);
+    }
+
+    public async Task SendAverageHamburgerPrice()
+    {
+        var value = _entityServices._productService.GetAverageHamburgerPriceForSignalR();
+        await Clients.All.SendAsync("ReceiveAverageHamburgerPrice", value);
+    }
+
+    public async Task SendOrderCount()
+    {
+        var value = _entityServices._orderService.GetOrderCountForSignalR();
+        await Clients.All.SendAsync("ReceiveOrderCount", value);
+    }
+
+    public async Task SendActiveOrderCount()
+    {
+        var value = _entityServices._orderService.GetActiveOrderCountForSignalR();
+        await Clients.All.SendAsync("ReceiveActiveOrderCount", value);
+    }
+
+    public async Task SendLastOrderPrice()
+    {
+        var value = _entityServices._orderService.GetLastOrderPriceForSignalR();
+        await Clients.All.SendAsync("ReceiveLastOrderPrice", value.ToString("0.00") + "₺");
+    }
+
+    public async Task SendTotalAmountFromMoneyCase()
+    {
+        var value = _entityServices._moneyCaseService.GetTotalAmountFromMoneyCaseForSignalR();
+        await Clients.All.SendAsync("ReceiveTotalAmountFromMoneyCase", value.ToString("0.00") + "₺");
+    }
+
+    public async Task SendTodayTotalPrice()
+    {
+        var value = _entityServices._orderService.GetTodayTotalPriceForSignalR();
+        await Clients.All.SendAsync("ReceiveTodayTotalPrice", value.ToString("0.00") + "₺");
+    }
+
+    public async Task SendTableCount()
+    {
+        var value = _entityServices._tableService.GetTableCountForSignalR();
+        await Clients.All.SendAsync("ReceiveTableCount", value);
+    }
 }

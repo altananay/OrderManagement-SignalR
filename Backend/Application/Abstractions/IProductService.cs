@@ -12,6 +12,8 @@ public interface IProductService : IGenericService<Product>
     int GetProductCountByCategoryNameDrink();
     decimal GetProductPriceAverageForSignalR();
     string GetProductNameByMaxPriceForSignalR();
+    string GetProductNameByMinPriceForSignalR();
+    decimal GetAverageHamburgerPriceForSignalR();
     Task<decimal> GetProductPriceAverage();
     Task<string> GetProductNameByMaxPrice();
     Task<string> GetProductNameByMinPrice();

@@ -50,4 +50,24 @@ public class OrderManager(IOrderRepository _repository) : IOrderService
     {
         return await _repository.GetTodayTotalPrice();
     }
+
+    public int GetOrderCountForSignalR()
+    {
+        return _repository.GetOrderCountForSignalR();
+    }
+
+    public int GetActiveOrderCountForSignalR()
+    {
+        return _repository.GetActiveOrderCountForSignalR();
+    }
+
+    public decimal GetLastOrderPriceForSignalR()
+    {
+        return _repository.GetLastOrderPriceForSignalR();
+    }
+
+    public decimal GetTodayTotalPriceForSignalR()
+    {
+        return _repository.GetTodayTotalPriceForSignalR();
+    }
 }

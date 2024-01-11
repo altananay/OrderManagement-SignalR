@@ -19,4 +19,9 @@ public class MoneyCaseRepository : GenericRepository<MoneyCase>, IMoneyCaseRepos
     {
         return await _context.MoneyCases.Select(mc => mc.TotalAmount).FirstOrDefaultAsync();
     }
+
+    public decimal GetTotalAmountFromMoneyCaseForSignalR()
+    {
+        return _context.MoneyCases.Select(mc => mc.TotalAmount).FirstOrDefault();
+    }
 }

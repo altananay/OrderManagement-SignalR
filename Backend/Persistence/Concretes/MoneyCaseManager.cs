@@ -35,4 +35,9 @@ public class MoneyCaseManager(IMoneyCaseRepository _repository) : IMoneyCaseServ
     {
         return await _repository.GetTotalAmountFromMoneyCase();
     }
+
+    public decimal GetTotalAmountFromMoneyCaseForSignalR()
+    {
+        return _repository.GetTotalAmountFromMoneyCaseForSignalR();
+    }
 }

@@ -69,4 +69,14 @@ public class ProductRepository : GenericRepository<Product>, IProductRepository
     {
         return await _context.Products.Where(p => p.CategoryId == (_context.Categories.Where(c => c.Name == "Hamburger").Select(c => c.Id).FirstOrDefault())).AverageAsync(p => p.Price);
     }
+
+    public string GetProductNameByMinPriceForSignalR()
+    {
+        return _context.Products.Where(p => p.Price == (_context.Products.Min(p => p.Price))).Select(p => p.Name).FirstOrDefault();
+    }
+
+    public decimal GetAverageHamburgerPriceForSignalR()
+    {
+        return _context.Products.Where(p => p.CategoryId == (_context.Categories.Where(c => c.Name == "Hamburger").Select(c => c.Id).FirstOrDefault())).Average(p => p.Price);
+    }
 }

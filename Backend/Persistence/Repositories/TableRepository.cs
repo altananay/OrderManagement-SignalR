@@ -19,4 +19,9 @@ public class TableRepository : GenericRepository<Table>, ITableRepository
     {
         return await _context.Tables.CountAsync();
     }
+
+    public int GetTableCountForSignalR()
+    {
+        return _context.Tables.Count();
+    }
 }
