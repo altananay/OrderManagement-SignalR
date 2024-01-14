@@ -3,15 +3,45 @@
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
-<script src="~/microsoft/signalr/dist/browser/signalr.min.js"></script>
+
 
 <div class="content">
     <div class="container-fluid">
         <script type="text/javascript">
 
+            $(document).ready(() => {
+
+                let connection = new signalR.HubConnectionBuilder()
+                    .withUrl("https://localhost:7121/SignalRHub").build();
+
+                connection.start().then(() => {
+                    setInterval(() => {
+                        connection.invoke("SendTotalAmountFromMoneyCase");
+                        connection.invoke("SendActiveOrderCount");
+                        connection.invoke("SendTableCount");
+                    }, 1000)
+
+                }).catch((error) => {
+                    console.log(error)
+                });
+
+                connection.on("ReceiveTotalAmountFromMoneyCase", (value) => {
+                    $("#totalAmountFromMoneyCase").text(value)
+                });
+
+                connection.on("ReceiveActiveOrderCount", (value) => {
+                    $("#activeOrderCount").text(value)
+                });
+
+                connection.on("ReceiveTableCount", (value) => {
+                    $("#totalTableCount").text(value)
+                });
+            })
         </script>
 
         <h4 class="page-title">Admin İstatistikler & Durumlar</h4>
@@ -23,7 +53,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <p class="fw-bold mt-1">Kasadaki Toplam Tutar</p>
-                                <h4 id="totalmoneycaseamount"><b></b></h4>
+                                <h4 id="totalAmountFromMoneyCase"><b></b></h4>
                                 <hr />
                                 <p class="fw-bold mt-1">Toplam Ürün Fiyatları</p>
                                 <h4>1465.78₺</h4>
@@ -81,7 +111,7 @@
                                     <div class="col-7 d-flex align-items-center">
                                         <div class="numbers">
                                             <p class="card-category">Aktif Siparişler</p>
-                                            <h4 class="card-title" id="activeordercount"></h4>
+                                            <h4 class="card-title" id="activeOrderCount"></h4>
                                         </div>
                                     </div>
                                 </div>
@@ -96,7 +126,7 @@
                                     <div class="col-7 d-flex align-items-center">
                                         <div class="numbers">
                                             <p class="card-category">Masa Sayısı</p>
-                                            <h4 class="card-title" id="menutablecount"></h4>
+                                            <h4 class="card-title" id="totalTableCount"></h4>
                                         </div>
                                     </div>
                                 </div>
