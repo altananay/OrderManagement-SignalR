@@ -40,6 +40,8 @@ public static class PersistenceServiceRegistration
         services.AddScoped<IMoneyCaseService, MoneyCaseManager>();
         services.AddScoped<ITableRepository, TableRepository>();
         services.AddScoped<ITableService, TableManager>();
+        services.AddScoped<ISliderRepository, SliderRepository>();
+        services.AddScoped<ISliderService, SliderManager>();
         return services;
     }
 }

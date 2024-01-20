@@ -21,6 +21,7 @@ public class SignalRContext : DbContext
     public DbSet<OrderDetail> OrderDetails { get; set; }
     public DbSet<MoneyCase> MoneyCases { get; set; }
     public DbSet<Table> Tables { get; set; }
+    public DbSet<Slider> Sliders { get; set; }
 
     public SignalRContext(DbContextOptions options, IConfiguration configuration) : base(options)
     {
