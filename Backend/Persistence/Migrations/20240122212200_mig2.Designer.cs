@@ -12,8 +12,8 @@ using Persistence.Contexts;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(SignalRContext))]
-    [Migration("20240120171956_mig1")]
-    partial class mig1
+    [Migration("20240122212200_mig2")]
+    partial class mig2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,6 +46,52 @@ namespace Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Abouts");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Basket", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("ProductCount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<Guid>("TableId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("TotalPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TableId");
+
+                    b.ToTable("Baskets");
+                });
+
+            modelBuilder.Entity("Domain.Entities.BasketDetail", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BasketId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("TotalPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BasketId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("BasketDetail");
                 });
 
             modelBuilder.Entity("Domain.Entities.Booking", b =>
@@ -113,7 +159,23 @@ namespace Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("OpenDays")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OpenDaysDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OpenHours")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -381,6 +443,36 @@ namespace Persistence.Migrations
                     b.ToTable("Testimonials");
                 });
 
+            modelBuilder.Entity("Domain.Entities.Basket", b =>
+                {
+                    b.HasOne("Domain.Entities.Table", "Table")
+                        .WithMany()
+                        .HasForeignKey("TableId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Table");
+                });
+
+            modelBuilder.Entity("Domain.Entities.BasketDetail", b =>
+                {
+                    b.HasOne("Domain.Entities.Basket", "Basket")
+                        .WithMany()
+                        .HasForeignKey("BasketId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.Product", "Product")
+                        .WithMany("BasketDetails")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Basket");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("Domain.Entities.OrderDetail", b =>
                 {
                     b.HasOne("Domain.Entities.Order", "Order")
@@ -418,6 +510,8 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Product", b =>
                 {
+                    b.Navigation("BasketDetails");
+
                     b.Navigation("OrderDetails");
                 });
 #pragma warning restore 612, 618

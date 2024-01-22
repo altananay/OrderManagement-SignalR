@@ -12,8 +12,8 @@ using Persistence.Contexts;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(SignalRContext))]
-    [Migration("20240121010238_mig2")]
-    partial class mig2
+    [Migration("20240122210507_mig1")]
+    partial class mig1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,6 +46,25 @@ namespace Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Abouts");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Basket", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("TableId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("TotalPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TableId");
+
+                    b.ToTable("Baskets");
                 });
 
             modelBuilder.Entity("Domain.Entities.Booking", b =>
@@ -274,6 +293,9 @@ namespace Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("BasketId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid>("CategoryId")
                         .HasColumnType("uniqueidentifier");
 
@@ -296,6 +318,8 @@ namespace Persistence.Migrations
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BasketId");
 
                     b.HasIndex("CategoryId");
 
@@ -397,6 +421,17 @@ namespace Persistence.Migrations
                     b.ToTable("Testimonials");
                 });
 
+            modelBuilder.Entity("Domain.Entities.Basket", b =>
+                {
+                    b.HasOne("Domain.Entities.Table", "Table")
+                        .WithMany()
+                        .HasForeignKey("TableId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Table");
+                });
+
             modelBuilder.Entity("Domain.Entities.OrderDetail", b =>
                 {
                     b.HasOne("Domain.Entities.Order", "Order")
@@ -418,13 +453,24 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Product", b =>
                 {
+                    b.HasOne("Domain.Entities.Basket", "Basket")
+                        .WithMany("Products")
+                        .HasForeignKey("BasketId");
+
                     b.HasOne("Domain.Entities.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Basket");
+
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Basket", b =>
+                {
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("Domain.Entities.Category", b =>
