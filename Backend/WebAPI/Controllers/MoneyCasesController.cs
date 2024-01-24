@@ -40,13 +40,13 @@ public class MoneyCasesController(IMoneyCaseService _moneyCaseService, IMapper _
         return Ok();
     }
 
-    [HttpGet("/api/MoneyCase/{id}")]
+    [HttpGet("/api/MoneyCases/{id}")]
     public async Task<IActionResult> GetById(Guid id)
     {
         return Ok(await _moneyCaseService.GetByIdAsync(id));
     }
 
-    [HttpGet("/api/MoneyCase/GetTotalAmountFromMoneyCase")]
+    [HttpGet("/api/MoneyCases/GetTotalAmountFromMoneyCase")]
     public async Task<IActionResult> GetTotalAmountFromMoneyCase()
     {
         return Ok(await _moneyCaseService.GetTotalAmountFromMoneyCase());

@@ -1,11 +1,9 @@
-﻿namespace Domain.Entities;
+﻿namespace Application.Responses.Basket;
 
-public class Basket
+public class GetBasketResponse
 {
     public Guid Id { get; set; }
     public decimal TotalPrice { get; set; }
     public decimal ProductCount { get; set; }
-    public Table Table { get; set; }
     public Guid TableId { get; set; }
-    List<BasketDetail> BasketDetails { get; set; }
 }

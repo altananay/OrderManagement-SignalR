@@ -40,7 +40,7 @@ public class FeaturesController(IFeatureService _featureService, IMapper _mapper
         return Ok();
     }
 
-    [HttpGet("/api/Feature/{id}")]
+    [HttpGet("/api/Features/{id}")]
     public async Task<IActionResult> GetById(Guid id)
     {
         return Ok(await _featureService.GetByIdAsync(id));

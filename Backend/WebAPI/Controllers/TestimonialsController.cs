@@ -40,7 +40,7 @@ public class TestimonialsController(ITestimonialService _testimonialService, IMa
         return Ok();
     }
 
-    [HttpGet("/api/Testimonial/{id}")]
+    [HttpGet("/api/Testimonials/{id}")]
     public async Task<IActionResult> GetById(Guid id)
     {
         return Ok(await _testimonialService.GetByIdAsync(id));

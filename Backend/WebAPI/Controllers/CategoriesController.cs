@@ -34,7 +34,7 @@ public class CategoriesController(IMapper _mapper, ICategoryService _categorySer
         return Ok();
     }
 
-    [HttpGet("/api/Category/{id}")]
+    [HttpGet("/api/Categories/{id}")]
     public async Task<IActionResult> GetById(Guid id)
     {
         Category product = await _categoryService.GetByIdAsync(id);
@@ -42,7 +42,7 @@ public class CategoriesController(IMapper _mapper, ICategoryService _categorySer
         return Ok(response);
     }
 
-    [HttpPut("/api/Category")]
+    [HttpPut("/api/Categories")]
     public async Task<IActionResult> UpdateCategory(UpdateCategoryRequest request)
     {
         Category product = _mapper.Map<UpdateCategoryRequest, Category>(request);

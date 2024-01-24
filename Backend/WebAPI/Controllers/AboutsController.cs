@@ -40,7 +40,7 @@ public class AboutsController(IAboutService _testimonialService, IMapper _mapper
         return Ok();
     }
 
-    [HttpGet("/api/About/{id}")]
+    [HttpGet("/api/Abouts/{id}")]
     public async Task<IActionResult> GetById(Guid id)
     {
         return Ok(await _testimonialService.GetByIdAsync(id));

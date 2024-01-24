@@ -40,7 +40,7 @@ public class DiscountsController(IDiscountService _discountService, IMapper _map
         return Ok();
     }
 
-    [HttpGet("/api/Discount/{id}")]
+    [HttpGet("/api/Discounts/{id}")]
     public async Task<IActionResult> GetById(Guid id)
     {
         return Ok(await _discountService.GetByIdAsync(id));

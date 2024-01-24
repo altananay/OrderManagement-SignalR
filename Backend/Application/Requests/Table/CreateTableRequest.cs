@@ -1,8 +1,7 @@
-﻿namespace Domain.Entities;
+﻿namespace Application.Requests.Table;
 
-public class Table
+public class CreateTableRequest
 {
-    public Guid Id { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
     public bool Status { get; set; }

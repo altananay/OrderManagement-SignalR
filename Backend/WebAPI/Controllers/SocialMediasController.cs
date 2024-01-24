@@ -40,7 +40,7 @@ public class SocialMediasController(ISocialMediaService _socialMediaService, IMa
         return Ok();
     }
 
-    [HttpGet("/api/SocialMedia/{id}")]
+    [HttpGet("/api/SocialMedias/{id}")]
     public async Task<IActionResult> GetById(Guid id)
     {
         return Ok(await _socialMediaService.GetByIdAsync(id));

@@ -1,6 +1,6 @@
-﻿namespace Domain.Entities;
+﻿namespace Application.Responses.Table;
 
-public class Table
+public class GetTableResponse
 {
     public Guid Id { get; set; }
     public string Name { get; set; }

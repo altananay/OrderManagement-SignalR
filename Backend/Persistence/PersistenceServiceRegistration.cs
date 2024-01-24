@@ -42,6 +42,10 @@ public static class PersistenceServiceRegistration
         services.AddScoped<ITableService, TableManager>();
         services.AddScoped<ISliderRepository, SliderRepository>();
         services.AddScoped<ISliderService, SliderManager>();
+        services.AddScoped<IBasketDetailRepository, BasketDetailRepository>();
+        services.AddScoped<IBasketDetailService, BasketDetailManager>();
+        services.AddScoped<IBasketRepository, BasketRepository>();
+        services.AddScoped<IBasketService, BasketManager>();
         return services;
     }
 }

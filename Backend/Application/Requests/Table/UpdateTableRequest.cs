@@ -1,6 +1,6 @@
-﻿namespace Domain.Entities;
+﻿namespace Application.Requests.Table;
 
-public class Table
+public class UpdateTableRequest
 {
     public Guid Id { get; set; }
     public string Name { get; set; }
