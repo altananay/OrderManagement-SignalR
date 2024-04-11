@@ -5,5 +5,7 @@ namespace Application.Abstractions;
 
 public interface IBasketService : IGenericService<Basket>
 {
-    Task<Basket> GetBasketByTableIdAsync(Guid id);
+    Task<List<Basket>> GetBasketByTableIdAsync(Guid id);
+
+    Task<List<Basket>> GetAllBasketsWithProductAsync();
 }

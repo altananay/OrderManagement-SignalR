@@ -1,6 +1,6 @@
-﻿namespace Application.Requests.Basket;
+﻿namespace WebUI.Dtos.Responses.Basket;
 
-public class UpdateBasketRequest
+public class GetAllBasketsResponse
 {
     public Guid Id { get; set; }
     public decimal ProductPrice { get; set; }
@@ -8,4 +8,5 @@ public class UpdateBasketRequest
     public decimal TotalPrice { get; set; }
     public Guid ProductId { get; set; }
     public Guid TableId { get; set; }
+    public string ProductName { get; set; }
 }

@@ -14,7 +14,7 @@ public class BasketsController(IBasketService _basketService, IMapper _mapper) :
     [HttpGet("/api/Baskets")]
     public async Task<IActionResult> GetAllBaskets()
     {
-        var values = await _mapper.Map<Task<List<GetAllBasketsResponse>>>(_basketService.GetAllAsync());
+        var values = await _mapper.Map<Task<List<GetAllBasketsResponse>>>(_basketService.GetAllBasketsWithProductAsync());
         return Ok(values);
     }
 
@@ -53,8 +53,7 @@ public class BasketsController(IBasketService _basketService, IMapper _mapper) :
     [HttpGet("/api/Baskets/GetByTableId/{id}")]
     public async Task<IActionResult> GetByTableId(Guid id)
     {
-        Basket values = await _basketService.GetBasketByTableIdAsync(id);
-        GetBasketResponse basket = _mapper.Map<Basket, GetBasketResponse>(values);
-        return Ok(basket);
+        var values = await _mapper.Map<Task<List<GetAllBasketsResponse>>>(_basketService.GetBasketByTableIdAsync(id));
+        return Ok(values);
     }
 }

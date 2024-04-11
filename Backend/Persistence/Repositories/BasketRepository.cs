@@ -15,8 +15,13 @@ public class BasketRepository : GenericRepository<Basket>, IBasketRepository
         _context = context;
     }
 
-    public async Task<Basket> GetBasketByTableIdAsync(Guid id)
+    public async Task<List<Basket>> GetAllBasketsWithProductAsync()
     {
-        return await _context.Baskets.Where(b => b.TableId == id).FirstOrDefaultAsync();
+        return await _context.Baskets.Include(b => b.Product).ToListAsync();
+    }
+
+    public async Task<List<Basket>> GetBasketByTableIdAsync(Guid id)
+    {
+        return await _context.Baskets.Where(b => b.TableId == id).Include(b => b.Product).ToListAsync();
     }
 }

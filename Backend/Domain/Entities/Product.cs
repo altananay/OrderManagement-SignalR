@@ -10,8 +10,6 @@ public class Product
     public bool Status { get; set; }
     public Guid CategoryId { get; set; }
 
-    public List<BasketDetail> BasketDetails { get; set; }
-
     //one-to-many
     public Category Category { get; set; }
 

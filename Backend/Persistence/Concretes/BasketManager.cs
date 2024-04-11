@@ -6,9 +6,9 @@ namespace Persistence.Concretes;
 
 public class BasketManager(IBasketRepository _repository) : IBasketService
 {
-    public Task<Basket> AddAsync(Basket entity)
+    public async Task<Basket> AddAsync(Basket entity)
     {
-        return _repository.AddAsync(entity);
+        return await _repository.AddAsync(entity);
     }
 
     public void Delete(Basket entity)
@@ -16,14 +16,14 @@ public class BasketManager(IBasketRepository _repository) : IBasketService
         _repository.Delete(entity);
     }
 
-    public Task<List<Basket>> GetAllAsync()
+    public async Task<List<Basket>> GetAllAsync()
     {
-        return _repository.GetAllAsync();
+        return await _repository.GetAllAsync();
     }
 
-    public Task<Basket> GetByIdAsync(Guid id)
+    public async Task<Basket> GetByIdAsync(Guid id)
     {
-        return _repository.GetByIdAsync(id);
+        return await _repository.GetByIdAsync(id);
     }
 
     public void Update(Basket entity)
@@ -31,8 +31,13 @@ public class BasketManager(IBasketRepository _repository) : IBasketService
         _repository.Update(entity);
     }
 
-    public Task<Basket> GetBasketByTableIdAsync(Guid id)
+    public async Task<List<Basket>> GetBasketByTableIdAsync(Guid id)
     {
-        return _repository.GetBasketByTableIdAsync(id);
+        return await _repository.GetBasketByTableIdAsync(id);
+    }
+
+    public async Task<List<Basket>> GetAllBasketsWithProductAsync()
+    {
+        return await _repository.GetAllBasketsWithProductAsync();
     }
 }
