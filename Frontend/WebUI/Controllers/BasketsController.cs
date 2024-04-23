@@ -18,10 +18,11 @@ public class BasketsController(IHttpClientFactory _httpClientFactory, IConfigura
         }
         return View();
     }
-    public async Task<IActionResult> DeleteBasket(int id)
+
+    public async Task<IActionResult> DeleteBasket(Guid id)
     {
         var client = _httpClientFactory.CreateClient();
-        var responseMessage = await client.DeleteAsync($"https://localhost:7186/api/Basket/{id}");
+        var responseMessage = await client.DeleteAsync(configuration.GetValue<string>("Endpoints:DeleteBasket") + id);
         if (responseMessage.IsSuccessStatusCode)
         {
             return RedirectToAction("Index");

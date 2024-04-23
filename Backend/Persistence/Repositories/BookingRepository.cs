@@ -7,7 +7,15 @@ namespace Persistence.Repositories;
 
 public class BookingRepository : GenericRepository<Booking>, IBookingRepository
 {
-    public BookingRepository(SignalRContext _context) : base(_context)
+    private readonly SignalRContext _context;
+
+    public BookingRepository(SignalRContext context) : base(context)
     {
+        _context = context;
+    }
+
+    public List<Booking> GetAll()
+    {
+        return _context.Bookings.ToList();
     }
 }

@@ -107,4 +107,10 @@ public class SignalRHub: Hub
         var value = _entityServices._tableService.GetTableCountForSignalR();
         await Clients.All.SendAsync("ReceiveTableCount", value);
     }
+
+    public async Task GetBookingList()
+    {
+        var values = _entityServices._bookingService.GetAll();
+        await Clients.All.SendAsync("ReceiveBookingList", values);
+    }
 }
