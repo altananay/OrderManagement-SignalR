@@ -2,7 +2,7 @@
 
 namespace Application.Repositories;
 
-public interface ISocialMediaRepository : IGenericDal<SocialMedia>
+public interface ISocialMediaRepository : IGenericRepository<SocialMedia>
 {
 
 }

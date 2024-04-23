@@ -2,7 +2,7 @@
 
 namespace Application.Repositories;
 
-public interface IBasketRepository : IGenericDal<Basket>
+public interface IBasketRepository : IGenericRepository<Basket>
 {
     Task<List<Basket>> GetBasketByTableIdAsync(Guid id);
 

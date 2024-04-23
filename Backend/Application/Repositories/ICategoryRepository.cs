@@ -2,7 +2,7 @@
 
 namespace Application.Repositories;
 
-public interface ICategoryRepository : IGenericDal<Category>
+public interface ICategoryRepository : IGenericRepository<Category>
 {
     public int GetCategoryCount();
     public int GetActiveCategoryCount();

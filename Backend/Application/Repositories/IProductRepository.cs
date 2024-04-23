@@ -2,7 +2,7 @@
 
 namespace Application.Repositories;
 
-public interface IProductRepository : IGenericDal<Product>
+public interface IProductRepository : IGenericRepository<Product>
 {
     Task<List<Product>> GetAllProductsWithCategoriesAsync();
     Task<Product> GetProductWithCategoryAsync(Guid id);

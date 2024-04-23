@@ -4,7 +4,7 @@ using Persistence.Contexts;
 
 namespace Persistence.Repositories.Base;
 
-public class GenericRepository<T>(SignalRContext _context) : IGenericDal<T> where T : class
+public class GenericRepository<T>(SignalRContext _context) : IGenericRepository<T> where T : class
 {
     public async Task<T> AddAsync(T entity)
     {

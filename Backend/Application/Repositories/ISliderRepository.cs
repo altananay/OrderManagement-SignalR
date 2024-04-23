@@ -2,7 +2,7 @@
 
 namespace Application.Repositories;
 
-public interface ISliderRepository : IGenericDal<Slider>
+public interface ISliderRepository : IGenericRepository<Slider>
 {
 
 }

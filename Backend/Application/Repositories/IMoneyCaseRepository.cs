@@ -2,7 +2,7 @@
 
 namespace Application.Repositories;
 
-public interface IMoneyCaseRepository : IGenericDal<MoneyCase>
+public interface IMoneyCaseRepository : IGenericRepository<MoneyCase>
 {
     decimal GetTotalAmountFromMoneyCaseForSignalR();
     Task<decimal> GetTotalAmountFromMoneyCase();

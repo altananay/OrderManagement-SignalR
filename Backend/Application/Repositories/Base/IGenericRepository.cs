@@ -1,6 +1,6 @@
 ﻿namespace Application.Repositories;
 
-public interface IGenericDal<T> where T : class
+public interface IGenericRepository<T> where T : class
 {
     Task<T> AddAsync(T entity);
     void Delete(T entity);

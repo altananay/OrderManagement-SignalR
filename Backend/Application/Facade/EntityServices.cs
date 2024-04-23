@@ -11,8 +11,9 @@ public class EntityServices
     public readonly ICategoryService _categoryService;
     public readonly ITableService _tableService;
     public readonly IBookingService _bookingService;
+    public readonly INotificationService _notificationService;
 
-    public EntityServices(IProductService productService, IOrderService orderService, IOrderDetailService orderDetailService, IMoneyCaseService moneyCaseService, ICategoryService categoryService, ITableService tableService, IBookingService bookingService)
+    public EntityServices(IProductService productService, IOrderService orderService, IOrderDetailService orderDetailService, IMoneyCaseService moneyCaseService, ICategoryService categoryService, ITableService tableService, IBookingService bookingService, INotificationService notificationService)
     {
         _productService = productService;
         _orderService = orderService;
@@ -21,6 +22,6 @@ public class EntityServices
         _categoryService = categoryService;
         _tableService = tableService;
         _bookingService = bookingService;
-
+        _notificationService = notificationService;
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Application.Repositories;
 
-public interface IDiscountRepository : IGenericDal<Discount>
+public interface IDiscountRepository : IGenericRepository<Discount>
 {
 
 }

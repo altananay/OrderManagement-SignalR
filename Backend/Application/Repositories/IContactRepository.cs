@@ -2,7 +2,7 @@
 
 namespace Application.Repositories;
 
-public interface IContactRepository : IGenericDal<Contact>
+public interface IContactRepository : IGenericRepository<Contact>
 {
 
 }

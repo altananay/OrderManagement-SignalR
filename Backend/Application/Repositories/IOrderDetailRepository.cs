@@ -2,7 +2,7 @@
 
 namespace Application.Repositories;
 
-public interface IOrderDetailRepository : IGenericDal<OrderDetail>
+public interface IOrderDetailRepository : IGenericRepository<OrderDetail>
 {
 
 }

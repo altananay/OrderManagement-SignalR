@@ -113,4 +113,16 @@ public class SignalRHub: Hub
         var values = _entityServices._bookingService.GetAll();
         await Clients.All.SendAsync("ReceiveBookingList", values);
     }
+
+    public async Task SendNotificationCountWithFalse()
+    {
+        var values = _entityServices._notificationService.GetNotificationCountWithStatusFalseForSignalR();
+        await Clients.All.SendAsync("ReceiveNotificationCountWithFalse", values);
+    }
+
+    public async Task SendNotificationListWithFalse()
+    {
+        var values = _entityServices._notificationService.GetAllNotificationsWithFalse();
+        await Clients.All.SendAsync("ReceiveNotificationListWithFalse", values);
+    }
 }

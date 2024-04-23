@@ -2,6 +2,6 @@
 
 namespace Application.Repositories;
 
-public interface ITestimonialRepository : IGenericDal<Testimonial>
+public interface ITestimonialRepository : IGenericRepository<Testimonial>
 {
 }

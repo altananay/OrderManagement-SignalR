@@ -2,7 +2,7 @@
 
 namespace Application.Repositories;
 
-public interface IAboutRepository : IGenericDal<About>
+public interface IAboutRepository : IGenericRepository<About>
 {
     
 }

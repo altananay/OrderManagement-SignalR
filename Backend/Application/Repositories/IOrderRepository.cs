@@ -2,7 +2,7 @@
 
 namespace Application.Repositories;
 
-public interface IOrderRepository : IGenericDal<Order>
+public interface IOrderRepository : IGenericRepository<Order>
 {
     int GetOrderCountForSignalR();
     int GetActiveOrderCountForSignalR();

@@ -23,6 +23,7 @@ public class SignalRContext : DbContext
     public DbSet<Table> Tables { get; set; }
     public DbSet<Slider> Sliders { get; set; }
     public DbSet<Basket> Baskets { get; set; }
+    public DbSet<Notification> Notifications { get; set; }
 
     public SignalRContext(DbContextOptions options, IConfiguration configuration) : base(options)
     {

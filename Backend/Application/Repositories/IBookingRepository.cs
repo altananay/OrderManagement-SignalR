@@ -2,7 +2,7 @@
 
 namespace Application.Repositories;
 
-public interface IBookingRepository : IGenericDal<Booking>
+public interface IBookingRepository : IGenericRepository<Booking>
 {
     List<Booking> GetAll();
 }

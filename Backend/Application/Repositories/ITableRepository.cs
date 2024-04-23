@@ -2,7 +2,7 @@
 
 namespace Application.Repositories;
 
-public interface ITableRepository : IGenericDal<Table>
+public interface ITableRepository : IGenericRepository<Table>
 {
     int GetTableCountForSignalR();
     Task<int> GetTableCount();

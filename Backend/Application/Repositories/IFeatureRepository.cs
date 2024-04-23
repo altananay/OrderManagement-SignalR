@@ -2,7 +2,7 @@
 
 namespace Application.Repositories;
 
-public interface IFeatureRepository : IGenericDal<Feature>
+public interface IFeatureRepository : IGenericRepository<Feature>
 {
 
 }
