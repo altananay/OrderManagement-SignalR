@@ -8,6 +8,7 @@ public class TableManager(ITableRepository _repository) : ITableService
 {
     public async Task<Table> AddAsync(Table entity)
     {
+        entity.Status = false;
         return await _repository.AddAsync(entity);
     }
 

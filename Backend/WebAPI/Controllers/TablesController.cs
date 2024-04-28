@@ -25,7 +25,7 @@ public class TablesController(ITableService _tableService, IMapper _mapper) : Co
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateTable(CreateTableRequest request)
+    public async Task<IActionResult> CreateTable([FromBody] CreateTableRequest request)
     {
         Table table = _mapper.Map<CreateTableRequest, Table>(request);
         await _tableService.AddAsync(table);
