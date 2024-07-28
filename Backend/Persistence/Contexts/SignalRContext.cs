@@ -1,13 +1,13 @@
 ﻿using Domain.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using System.Reflection;
 
 namespace Persistence.Contexts;
 
-public class SignalRContext : DbContext
+public class SignalRContext : IdentityDbContext<User, Role, Guid>
 {
-    protected IConfiguration Configuration { get; set; }
+    protected IConfiguration? _configuration;
     public DbSet<About> Abouts { get; set; }
     public DbSet<Booking> Bookings { get; set; }
     public DbSet<Category> Categories { get; set; }
@@ -25,13 +25,20 @@ public class SignalRContext : DbContext
     public DbSet<Basket> Baskets { get; set; }
     public DbSet<Notification> Notifications { get; set; }
 
+    public SignalRContext() { }
+
     public SignalRContext(DbContextOptions options, IConfiguration configuration) : base(options)
     {
-        Configuration = configuration;
+        _configuration = configuration;
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        base.OnModelCreating(modelBuilder);
+    }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        base.OnConfiguring(optionsBuilder);
     }
 }

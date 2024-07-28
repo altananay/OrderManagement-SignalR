@@ -1,5 +1,5 @@
-using Persistence;
 using Application;
+using Persistence;
 using WebAPI.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
