@@ -6,4 +6,5 @@ public interface ITableRepository : IGenericRepository<Table>
 {
     int GetTableCountForSignalR();
     Task<int> GetTableCount();
+    List<Table> GetAllTables();
 }

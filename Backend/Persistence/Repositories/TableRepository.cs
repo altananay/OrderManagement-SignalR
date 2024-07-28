@@ -24,4 +24,9 @@ public class TableRepository : GenericRepository<Table>, ITableRepository
     {
         return _context.Tables.Count();
     }
+
+    public List<Table> GetAllTables()
+    {
+        return _context.Tables.ToList();
+    }
 }

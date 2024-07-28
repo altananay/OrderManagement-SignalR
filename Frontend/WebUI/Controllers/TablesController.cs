@@ -81,8 +81,8 @@ public class TablesController(IHttpClientFactory _httpClientFactory, IConfigurat
 	public async Task<IActionResult> TableListByStatus()
 	{
 		var client = _httpClientFactory.CreateClient();
-		var responseMessage = await client.GetAsync("https://localhost:7186/api/MenuTables");
-		if (responseMessage.IsSuccessStatusCode)
+        var responseMessage = await client.GetAsync(_configuration.GetValue<string>("Endpoints:GetAllTables"));
+        if (responseMessage.IsSuccessStatusCode)
 		{
 			var jsonData = await responseMessage.Content.ReadAsStringAsync();
 			var values = JsonConvert.DeserializeObject<List<GetAllTablesResponse>>(jsonData);

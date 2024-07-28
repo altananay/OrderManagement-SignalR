@@ -7,6 +7,8 @@ public class SignalRHub: Hub
 {
     private readonly EntityServices _entityServices;
 
+    private static int ClientCount = 0;
+
     public SignalRHub(EntityServices entityServices)
     {
         _entityServices = entityServices;
@@ -124,5 +126,30 @@ public class SignalRHub: Hub
     {
         var values = _entityServices._notificationService.GetAllNotificationsWithFalse();
         await Clients.All.SendAsync("ReceiveNotificationListWithFalse", values);
+    }
+
+    public async Task SendTablesStatus()
+    {
+        var value = _entityServices._tableService.GetAll();
+        await Clients.All.SendAsync("ReceiveTablesStatus", value);
+    }
+
+    public async Task SendMessage(string user, string message)
+    {
+        await Clients.All.SendAsync("ReceiveMessage", user, message);
+    }
+
+    public override async Task OnConnectedAsync()
+    {
+        ClientCount++;
+        await Clients.All.SendAsync("ReceiveClientCount", ClientCount);
+        await base.OnConnectedAsync();
+    }
+
+    public override async Task OnDisconnectedAsync(Exception? exception)
+    {
+        ClientCount--;
+        await Clients.All.SendAsync("ReceiveClientCount", ClientCount);
+        await base.OnDisconnectedAsync(exception);
     }
 }

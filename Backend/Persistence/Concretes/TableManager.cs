@@ -41,4 +41,9 @@ public class TableManager(ITableRepository _repository) : ITableService
     {
         return _repository.GetTableCountForSignalR();
     }
+
+    public List<Table> GetAll()
+    {
+        return _repository.GetAllTables();
+    }
 }
