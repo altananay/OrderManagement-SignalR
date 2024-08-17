@@ -13,31 +13,55 @@
                 <form method="post">
                     <div class="card">
                         <div class="card-header">
-                            <div class="card-title">Contact Ekle</div>
+                            <div class="card-title">Contact Güncelle</div>
                         </div>
                         <input type="hidden" asp-for="Id"/>
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="Location">Lokasyonu girin</label>
-                                <input type="text" class="form-control" asp-for="Location" id="Location" placeholder="Enter Category Name">
+                                <label for="Location">Konumu Girin</label>
+                                <input type="text" class="form-control" asp-for="Location" id="Location" placeholder="Konumu girin">
                             </div>
                         </div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="Phone">Telefon no gir</label>
-                                <input type="text" class="form-control" asp-for="Phone" id="Phone" placeholder="Enter Category Name">
+                                <label for="Phone">Telefon Numarası Girin</label>
+                                <input type="text" class="form-control" asp-for="Phone" id="Phone" placeholder="Telefon numarası girin">
                             </div>
                         </div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="Email">Mail Adresi Gir</label>
-                                <textarea rows="5" type="text" class="form-control" asp-for="Email" id="Email" placeholder="Enter Category Name"></textarea>
+                                <label for="Email">Email Adresi Gir</label>
+                                <input type="text" class="form-control" asp-for="Email" id="Phone" placeholder="Email adresi girin">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Email">Başlığı Girin</label>
+                                <input type="text" class="form-control" asp-for="Title" id="Phone" placeholder="Başlığı girin">
                             </div>
                         </div>
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="Description">Açıklamayı Gir</label>
                                 <textarea rows="5" type="text" class="form-control" asp-for="Description" id="Description" placeholder="Enter Category Name"></textarea>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Description">Açık olan günleri girin</label>
+                                <input type="text" class="form-control" asp-for="OpenDays" id="Phone" placeholder="Açık olan günleri girin">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Description">Açık olan günlerin açıklamasını girin</label>
+                                <textarea rows="5" type="text" class="form-control" asp-for="OpenDaysDescription" id="Description" placeholder="Enter Category Name"></textarea>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Description">Hangi saatlerde açık olduğunuzu girin</label>
+                                <input type="text" class="form-control" asp-for="OpenHours" id="Phone" placeholder="Açık olan günleri girin">
                             </div>
                         </div>
                         <div class="card-action">

@@ -11,10 +11,10 @@
                             Bize Ulaşın
                         </h4>
                         <div class="contact_link_box">
-                            <a href="@item.Location">
+                            <a href="">
                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                                 <span>
-                                    Konum
+                                    @item.Location
                                 </span>
                             </a>
                             <a href="">
@@ -45,10 +45,11 @@
                 </div>
                 <div class="col-md-4 footer-col">
                     <h4>
-                        @item.OpenDays
+                        @item.OpenDaysDescription
+                        
                     </h4>
                     <p>
-                        @item.OpenDaysDescription
+                        @item.OpenDays
                     </p>
                     <p>
                         @item.OpenHours

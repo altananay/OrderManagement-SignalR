@@ -45,4 +45,18 @@ public class DiscountsController(IDiscountService _discountService, IMapper _map
     {
         return Ok(await _discountService.GetByIdAsync(id));
     }
+
+    [HttpGet("/api/Discounts/StatusTrue/{id}")]
+    public async Task<IActionResult> ChangeDiscountStatusToTrue(Guid id)
+    {
+        await _discountService.ChangeStatusToTrue(id);
+        return Ok();
+    }
+
+    [HttpGet("/api/Discounts/StatusFalse/{id}")]
+    public async Task<IActionResult> ChangeDiscountStatusToFalse(Guid id)
+    {
+        await _discountService.ChangeStatusToFalse(id);
+        return Ok();
+    }
 }

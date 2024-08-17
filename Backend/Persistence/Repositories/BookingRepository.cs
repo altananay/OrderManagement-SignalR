@@ -18,4 +18,24 @@ public class BookingRepository : GenericRepository<Booking>, IBookingRepository
     {
         return _context.Bookings.ToList();
     }
+
+    public async Task BookingStatusApproved(Guid id)
+    {
+        var booking = await _context.Bookings.FindAsync(id);
+        if (booking != null)
+        {
+            booking.Status = true;
+        }    
+        await _context.SaveChangesAsync();
+    }
+
+    public void BookingStatusCancelled(Guid id)
+    {
+        var booking = _context.Bookings.Find(id);
+        if(booking != null)
+        {
+            booking.Status = false;
+        }
+        _context.SaveChanges();
+    }
 }

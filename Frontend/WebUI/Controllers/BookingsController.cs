@@ -81,4 +81,19 @@ public class BookingsController(IHttpClientFactory _httpClientFactory, IConfigur
         }
         return View();
     }
+
+
+    public async Task<IActionResult> BookingStatusApproved(Guid id)
+    {
+        var client = _httpClientFactory.CreateClient();
+        await client.GetAsync(configuration.GetValue<string>("Endpoints:BookingApproved") + id.ToString());
+        return RedirectToAction("Index");
+    }
+
+    public async Task<IActionResult> BookingStatusCancelled(Guid id)
+    {
+        var client = _httpClientFactory.CreateClient();
+        await client.GetAsync(configuration.GetValue<string>("Endpoints:BookingCancelled") + id.ToString());
+        return RedirectToAction("Index");
+    }
 }

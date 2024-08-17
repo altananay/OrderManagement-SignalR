@@ -35,4 +35,14 @@ public class BookingManager(IBookingRepository repository) : IBookingService
     {
         repository.Update(entity);
     }
+
+    public async Task BookingStatusApproved(Guid id)
+    {
+        await repository.BookingStatusApproved(id);
+    }
+
+    public void BookingStatusCancelled(Guid id)
+    {
+        repository.BookingStatusCancelled(id);
+    }
 }

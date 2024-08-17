@@ -5,5 +5,6 @@ namespace Application.Abstractions;
 
 public interface IDiscountService : IGenericService<Discount>
 {
-
+    Task ChangeStatusToTrue(Guid id);
+    Task ChangeStatusToFalse(Guid id);
 }

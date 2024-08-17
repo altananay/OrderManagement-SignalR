@@ -13,7 +13,6 @@ public class SignalRContext : IdentityDbContext<User, Role, Guid>
     public DbSet<Category> Categories { get; set; }
     public DbSet<Discount> Discounts { get; set; }
     public DbSet<Contact> Contacts { get; set; }
-    public DbSet<Feature> Features { get; set; }
     public DbSet<Product> Products { get; set; }
     public DbSet<SocialMedia> SocialMedias { get; set; }
     public DbSet<Testimonial> Testimonials { get; set; }
@@ -39,6 +38,7 @@ public class SignalRContext : IdentityDbContext<User, Role, Guid>
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
+        optionsBuilder.UseSqlServer("Server=MSI; initial Catalog = SignalRDB; integrated Security = true; TrustServerCertificate=True");
         base.OnConfiguring(optionsBuilder);
     }
 }

@@ -30,4 +30,14 @@ public class DiscountManager(IDiscountRepository repository) : IDiscountService
     {
         repository.Update(entity);
     }
+
+    public async Task ChangeStatusToFalse(Guid id)
+    {
+        await repository.ChangeStatusToFalse(id);
+    }
+
+    public async Task ChangeStatusToTrue(Guid id)
+    {
+        await repository.ChangeStatusToTrue(id);
+    }
 }

@@ -28,8 +28,6 @@ public static class PersistenceServiceRegistration
         services.AddScoped<IContactRepository, ContactRepository>();
         services.AddScoped<IDiscountService, DiscountManager>();
         services.AddScoped<IDiscountRepository, DiscountRepository>();
-        services.AddScoped<IFeatureRepository, FeatureRepository>();
-        services.AddScoped<IFeatureService, FeatureManager>();
         services.AddScoped<ISocialMediaRepository, SocialMediaRepository>();
         services.AddScoped<ISocialMediaService, SocialMediaManager>();
         services.AddScoped<ITestimonialRepository, TestimonialRepository>();

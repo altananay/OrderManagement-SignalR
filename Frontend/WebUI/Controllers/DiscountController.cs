@@ -81,4 +81,18 @@ public class DiscountController(IHttpClientFactory _httpClientFactory, IConfigur
         }
         return View();
     }
+
+    public async Task<IActionResult> ChangeStatusToTrue(Guid id)
+    {
+        var client = _httpClientFactory.CreateClient();
+        await client.GetAsync(configuration.GetValue<string>("Endpoints:DiscountTrue") + id.ToString());
+        return RedirectToAction("Index");
+    }
+
+    public async Task<IActionResult> ChangeStatusToFalse(Guid id)
+    {
+        var client = _httpClientFactory.CreateClient();
+        await client.GetAsync(configuration.GetValue<string>("Endpoints:DiscountFalse") + id.ToString());
+        return RedirectToAction("Index");
+    }
 }

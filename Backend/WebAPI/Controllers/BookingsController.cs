@@ -45,5 +45,19 @@ namespace WebAPI.Controllers
         {
             return Ok(await _bookingService.GetByIdAsync(id));
         }
+
+        [HttpGet("/api/Bookings/StatusApproved/{id}")]
+        public async Task<IActionResult> BookingStatusApproved(Guid id)
+        {
+            await _bookingService.BookingStatusApproved(id);
+            return Ok();
+        }
+
+        [HttpGet("/api/Bookings/StatusCancelled/{id}")]
+        public IActionResult BookingStatusCancelled(Guid id)
+        {
+            _bookingService.BookingStatusCancelled(id);
+            return Ok();
+        }
     }
 }
