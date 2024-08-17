@@ -19,14 +19,14 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateAbout(CreateBookingRequest request)
+        public async Task<IActionResult> CreateBooking(CreateBookingRequest request)
         {
             await _bookingService.AddAsync(_mapper.Map<CreateBookingRequest, Booking>(request));
             return Ok();
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeleteAbout(Guid id)
+        public async Task<IActionResult> DeleteBooking(Guid id)
         {
             var value = await _bookingService.GetByIdAsync(id);
             _bookingService.Delete(value);
@@ -34,7 +34,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateAbout(UpdateBookingRequest request)
+        public async Task<IActionResult> UpdateBooking(UpdateBookingRequest request)
         {
             _bookingService.Update(_mapper.Map<UpdateBookingRequest, Booking>(request));
             return Ok();

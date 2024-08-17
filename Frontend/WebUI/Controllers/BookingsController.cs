@@ -32,8 +32,6 @@ public class BookingsController(IHttpClientFactory _httpClientFactory, IConfigur
     [HttpPost]
     public async Task<IActionResult> CreateBooking(CreateBookingRequest request)
     {
-        //todo: add textarea to webui for description column
-        request.Description = "";
         var client = _httpClientFactory.CreateClient();
         var jsonData = JsonConvert.SerializeObject(request);
         StringContent content = new StringContent(jsonData, encoding: Encoding.UTF8, "application/json");

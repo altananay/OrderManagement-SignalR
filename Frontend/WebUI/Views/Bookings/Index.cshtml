@@ -53,10 +53,10 @@
                                                 <td>${item.personCount}</td>
                                                 <td>${item.description}</td>
                                                 <td>${item.status}</td>
-                                                <td><a href="/Booking/DeleteBooking/${item.id}" class="btn btn-outline-danger">Sil</a></td>
-                                                            <td><a href="/Booking/UpdateBooking/${item.id}" class="btn btn-outline-success">Güncelle</a></td>
-                                                            <td><a href="/Booking/BookingStatusApproved/${item.id}" class="btn btn-outline-info">Onayla</a></td>
-                                                            <td><a href="/Booking/BookingStatusCancelled/${item.id}" class="btn btn-outline-dark">İptal Et</a></td>
+                                                <td><a href="/Bookings/DeleteBooking/${item.id}" class="btn btn-outline-danger">Sil</a></td>
+                                                            <td><a href="/Bookings/UpdateBooking/${item.id}" class="btn btn-outline-success">Güncelle</a></td>
+                                                            <td><a href="/Bookings/BookingStatusApproved/${item.id}" class="btn btn-outline-info">Onayla</a></td>
+                                                            <td><a href="/Bookings/BookingStatusCancelled/${item.id}" class="btn btn-outline-dark">İptal Et</a></td>
                                                 </tr>`
                     });
                     tablehtml += "</tbody></table>";
@@ -79,7 +79,7 @@
                         </div>
                         
                         <div id="bookingList"></div>
-                        <a href="/Bookings/CreateBooking/" class="btn btn-outline-primary">Yeni Kategori Ekle</a>
+                        <a href="/Bookings/CreateBooking/" class="btn btn-outline-primary">Yeni Rezervasyon Ekle</a>
 
                     </div>
                 </div>
