@@ -10,7 +10,7 @@ internal class NotificationManager(INotificationRepository repository) : INotifi
     public Task<Notification> AddAsync(Notification entity)
     {
         entity.CreatedDate = DateTime.UtcNow;
-        entity.Type = NotificationType.Message;
+        entity.Type = NotificationType.Message.ToString();
         entity.Status = false;
         return repository.AddAsync(entity);
     }
@@ -33,7 +33,7 @@ internal class NotificationManager(INotificationRepository repository) : INotifi
     public void Update(Notification entity)
     {
         entity.CreatedDate = DateTime.UtcNow;
-        entity.Type = NotificationType.Message;
+        entity.Type = NotificationType.Message.ToString();
         repository.Update(entity);
     }
 
