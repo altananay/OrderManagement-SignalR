@@ -59,4 +59,11 @@ public class DiscountsController(IDiscountService _discountService, IMapper _map
         await _discountService.ChangeStatusToFalse(id);
         return Ok();
     }
+
+    [HttpGet("/api/Discounts/GetByStatusTrue")]
+    public async Task<IActionResult> GetAllByStatusTrue()
+    {
+        var values = await _mapper.Map<Task<List<GetAllDiscountsResponse>>>(_discountService.GetAllByStatusTrue());
+        return Ok(values);
+    }
 }

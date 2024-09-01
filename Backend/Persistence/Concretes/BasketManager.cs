@@ -10,7 +10,6 @@ public class BasketManager(IBasketRepository _repository, IProductService produc
     {
         entity.ProductPrice = productService.GetByIdAsync(entity.ProductId).Result.Price;
         entity.TotalPrice = entity.ProductPrice * entity.ProductCount;
-        entity.TableId = Guid.Parse("ec3610d7-877d-4225-af81-08dc1d21720c");
         return await _repository.AddAsync(entity);
     }
 

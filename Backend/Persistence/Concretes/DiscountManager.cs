@@ -40,4 +40,9 @@ public class DiscountManager(IDiscountRepository repository) : IDiscountService
     {
         await repository.ChangeStatusToTrue(id);
     }
+
+    public async Task<List<Discount>> GetAllByStatusTrue()
+    {
+        return await repository.GetAllByStatusTrue();
+    }
 }

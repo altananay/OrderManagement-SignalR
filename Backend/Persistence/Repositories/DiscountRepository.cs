@@ -1,5 +1,6 @@
 ﻿using Application.Repositories;
 using Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using Persistence.Contexts;
 using Persistence.Repositories.Base;
 
@@ -32,5 +33,11 @@ public class DiscountRepository : GenericRepository<Discount>, IDiscountReposito
             discount.Status = true;
         }
         await _context.SaveChangesAsync();
+    }
+
+    public async Task<List<Discount>> GetAllByStatusTrue()
+    {
+        var values = await _context.Discounts.Where(x => x.Status == true).ToListAsync();
+        return values;
     }
 }

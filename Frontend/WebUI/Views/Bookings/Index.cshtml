@@ -17,7 +17,7 @@
         <script type="text/javascript">
             $(document).ready(() => {
                 let connection = new signalR.HubConnectionBuilder()
-                    .withUrl("https://localhost:7121/SignalRHub").build();
+                    .withUrl("https://localhost:5151/SignalRHub").build();
 
                 connection.start().then(() => {
                     setInterval(() => {
