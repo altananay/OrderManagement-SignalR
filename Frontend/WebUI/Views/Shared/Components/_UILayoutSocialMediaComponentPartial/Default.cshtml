@@ -1,0 +1,10 @@
+﻿@model List<GetAllSocialMediasResponse>
+
+<div class="footer_social">
+    @foreach (var item in Model)
+    {
+        <a href="@item.AccountUrl">
+            <i class="@item.ImageUrl" aria-hidden="true"></i>
+        </a>
+    }
+</div>

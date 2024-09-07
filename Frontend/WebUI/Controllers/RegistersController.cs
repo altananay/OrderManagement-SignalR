@@ -1,10 +1,12 @@
 ﻿using Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using WebUI.Dtos.Requests.Identity;
 
 namespace WebUI.Controllers;
 
+[AllowAnonymous]
 public class RegistersController : Controller
 {
     private readonly UserManager<User> _userManager;
@@ -35,7 +37,7 @@ public class RegistersController : Controller
         var result = await _userManager.CreateAsync(user, registerRequest.Password);
         if (result.Succeeded)
         {
-            return RedirectToAction("Index", "Login");
+            return RedirectToAction("Index", "Logins");
         }
 		//todo: If result is failure add error message
 		return View();

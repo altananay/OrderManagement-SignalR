@@ -46,6 +46,8 @@ public static class PersistenceServiceRegistration
         services.AddScoped<IBasketService, BasketManager>();
         services.AddScoped<INotificationRepository, NotificationRepository>();
         services.AddScoped<INotificationService, NotificationManager>();
+        services.AddScoped<IMessageService, MessageManager>();
+        services.AddScoped<IMessageRepository, MessageRepository>();
         return services;
     }
 }
