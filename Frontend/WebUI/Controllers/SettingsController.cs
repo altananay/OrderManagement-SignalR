@@ -1,7 +1,6 @@
 ﻿using Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json.Linq;
 using WebUI.Dtos.Requests.Identity;
 
 namespace WebUI.Controllers;

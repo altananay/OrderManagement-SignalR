@@ -26,4 +26,10 @@ public class LoginsController(SignInManager<User> _signInManager) : Controller
 		//todo: If result is failure add error message
 		return View();
     }
+
+    public async Task<IActionResult> Logout()
+    {
+        await _signInManager.SignOutAsync();
+        return RedirectToAction("Index", "Logins");
+    }
 }
