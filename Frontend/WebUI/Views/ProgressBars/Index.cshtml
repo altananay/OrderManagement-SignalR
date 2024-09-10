@@ -24,6 +24,10 @@
                         connection.invoke("SendTotalAmountFromMoneyCase");
                         connection.invoke("SendActiveOrderCount");
                         connection.invoke("SendTableCount");
+                        connection.invoke("SendProductPriceAverage");
+                        connection.invoke("SendAverageHamburgerPrice");
+                        connection.invoke("SendProductCountByCategoryNameDrink");
+                        connection.invoke("SendOrderCount");
                     }, 1000)
 
                 }).catch((error) => {
@@ -40,6 +44,71 @@
 
                 connection.on("ReceiveTableCount", (value) => {
                     $("#totalTableCount").text(value)
+                });
+
+                connection.on("ReceiveTableCount", (value) => {
+                    $("#totalMenuTableCountProgress").empty();
+                    $("#totalMenuTableCountProgress").append(`
+                        <div class="d-flex justify-content-between mb-1">
+                        <span class="text-muted">Toplam Masa Sayısı</span>
+                                    <span class="text-muted fw-bold">${value}</span>
+                        </div>
+                        <div class="progress mb-2" style="height: 7px;">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: ${value}%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="${value}%"></div>
+                        </div>                              
+                `)
+                });
+
+                connection.on("ReceiveProductPriceAverage", (value) => {
+                    $("#ReceiveProductPriceAverageProgress").empty();
+                    $("#ReceiveProductPriceAverageProgress").append(`
+                                    <div class="d-flex justify-content-between mb-1">
+                                    <span class="text-muted">Ortalama Ürün Fiyatı</span>
+                                                <span class="text-muted fw-bold">${value}</span>
+                                    </div>
+                                    <div class="progress mb-2" style="height: 7px;">
+                                                            <div class="progress-bar bg-info" role="progressbar" style="width: ${value}%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="${value}%"></div>
+                                    </div>
+                            `)
+                });
+
+                connection.on("ReceiveAverageHamburgerPrice", (value) => {
+                    $("#ReceiveAveragePriceByHamburgerProgress").empty();
+                    $("#ReceiveAveragePriceByHamburgerProgress").append(`
+                                    <div class="d-flex justify-content-between mb-1">
+                                    <span class="text-muted">Ortalama Hamburger Fiyatı</span>
+                                                <span class="text-muted fw-bold">${value}</span>
+                                    </div>
+                                    <div class="progress mb-2" style="height: 7px;">
+                                                            <div class="progress-bar bg-primary" role="progressbar" style="width: ${value}%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="${value}%"></div>
+                                    </div>
+                            `)
+                });
+
+                connection.on("ReceiveProductCountByCategoryNameDrink", (value) => {
+                    $("#ReceiveProductCountByCategoryNameDrinkProgress").empty();
+                    $("#ReceiveProductCountByCategoryNameDrinkProgress").append(`
+                                                <div class="d-flex justify-content-between mb-1">
+                                                <span class="text-muted">İçecek Kategori Sayısı</span>
+                                                            <span class="text-muted fw-bold">${value}</span>
+                                                </div>
+                                                <div class="progress mb-2" style="height: 7px;">
+                                                                        <div class="progress-bar bg-primary" role="progressbar" style="width: ${value}%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="${value}%"></div>
+                                                </div>
+                                        `)
+                });
+
+                connection.on("ReceiveOrderCount", (value) => {
+                    $("#ReceiveTotalOrderCountProgress").empty();
+                    $("#ReceiveTotalOrderCountProgress").append(`
+                                                            <div class="d-flex justify-content-between mb-1">
+                                                            <span class="text-muted">Toplam Sipariş Sayısı</span>
+                                                                        <span class="text-muted fw-bold">${value}</span>
+                                                            </div>
+                                                            <div class="progress mb-2" style="height: 7px;">
+                                                                                    <div class="progress-bar bg-primary" role="progressbar" style="width: ${value}%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="${value}%"></div>
+                                                            </div>
+                                                    `)
                 });
             })
         </script>
@@ -81,19 +150,14 @@
 
                                 <div class="progress-card" id="totalMenuTableCountProgress"></div>
 
-                                <div class="progress-card" id="ReceiveProductPriceAvgProgress"></div>
+                                <div class="progress-card" id="ReceiveProductPriceAverageProgress"></div>
 
-                                <div class="progress-card" id="ReceiveAvgPriceByHamburgerProgress"></div>
+                                <div class="progress-card" id="ReceiveAveragePriceByHamburgerProgress"></div>
 
                                 <div class="progress-card" id="ReceiveProductCountByCategoryNameDrinkProgress"></div>
 
                                 <div class="progress-card" id="ReceiveTotalOrderCountProgress"></div>
 
-                                <div class="progress-card" id="ReceiveProductPriceBySteakBurgerProgress"></div>
-
-                                <div class="progress-card" id="ReceiveTotalPriceByDrinkCategoryProgress"></div>
-
-                                <div class="progress-card" id="ReceiveTotalPriceBySaladCategoryProgress"></div>
                             </div>
                         </div>
                     </div>
