@@ -95,4 +95,11 @@ public class ProductManager(IProductRepository repository) : IProductService
     {
         return repository.GetAverageHamburgerPriceForSignalR();
     }
+
+	public async Task<List<Product>> GetAllProductsWithPaginationAsync(int page, int limit)
+	{
+		page = page < 1 ? page = 1 : page;
+		limit = limit < 1 ? limit = 1 : limit;
+		return await repository.GetAllProductsWithPaginationAsync(page, limit);
+	}
 }

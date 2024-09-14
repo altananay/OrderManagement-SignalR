@@ -17,4 +17,5 @@ public interface IProductRepository : IGenericRepository<Product>
     Task<string> ProductNameByMaxPrice();
     Task<string> ProductNameByMinPrice();
     Task<decimal> GetAverageHamburgerPrice();
+    Task<List<Product>> GetAllProductsWithPaginationAsync(int page, int limit);
 }

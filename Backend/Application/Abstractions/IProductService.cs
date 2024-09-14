@@ -18,4 +18,5 @@ public interface IProductService : IGenericService<Product>
     Task<string> GetProductNameByMaxPrice();
     Task<string> GetProductNameByMinPrice();
     Task<decimal> GetAverageHamburgerPrice();
+    Task<List<Product>> GetAllProductsWithPaginationAsync(int page, int limit);
 }

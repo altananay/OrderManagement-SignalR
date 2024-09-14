@@ -10,7 +10,9 @@ public class ProductMapping : Profile
     public ProductMapping()
     {
         CreateMap<Task<List<GetAllProductsWithCategoryResponse>>, Task<List<Product>>>().ReverseMap();
-        CreateMap<Product, GetAllProductsWithCategoryResponse>().ForMember(destinationMember: p => p.CategoryName, memberOptions: opt => opt.MapFrom(p => p.Category.Name));
+        CreateMap<Task<List<GetAllProductsResponse>>, Task<List<Product>>>().ReverseMap();
+        CreateMap<Product, GetAllProductsResponse>().ForMember(destinationMember: p => p.CategoryName, memberOptions: opt => opt.MapFrom(p => p.Category.Name)).ReverseMap();
+		CreateMap<Product, GetAllProductsWithCategoryResponse>().ForMember(destinationMember: p => p.CategoryName, memberOptions: opt => opt.MapFrom(p => p.Category.Name)).ReverseMap();
         CreateMap<Product, CreateProductRequest>().ReverseMap();
         CreateMap<Product, UpdateProductRequest>().ReverseMap();
         CreateMap<Product, GetProductResponse>().ReverseMap();

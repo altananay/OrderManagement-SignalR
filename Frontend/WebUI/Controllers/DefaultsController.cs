@@ -3,21 +3,28 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
+using WebUI.Dtos.Responses.Contact;
 
 namespace WebUI.Controllers;
 
 [AllowAnonymous]
 public class DefaultsController(IHttpClientFactory _httpClientFactory, IConfiguration configuration) : Controller
 {
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+		var client = _httpClientFactory.CreateClient();
+        Guid id = Guid.Parse("6bf0779e-dc6c-4c0f-82f0-af6cdc7f7daf");
+        var responseMessage = await client.GetAsync(configuration.GetValue<string>("Endpoints:GetContact") + id.ToString());
+		var response = await responseMessage.Content.ReadAsStringAsync();
+		var jsonResponse = JsonConvert.DeserializeObject<GetContactResponse>(response);
+		ViewBag.Location = jsonResponse.Location;
+		return View();
     }
 
     [HttpGet]
     public PartialViewResult SendMessage()
     {
-        return PartialView();
+		return PartialView();
     }
 
     [HttpPost]

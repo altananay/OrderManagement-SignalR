@@ -11,7 +11,14 @@ namespace WebAPI.Controllers;
 [ApiController]
 public class ProductsController(IProductService _productService, IMapper _mapper) : ControllerBase
 {
-    [HttpGet("/GetAllProductsWithCategory")]
+    [HttpGet("/api/Products/Page/{page}/WithLimit/{limit}")]
+	public async Task<IActionResult> GetAllProductsWithPagination(int page, int limit)
+	{
+		var values = await _mapper.Map<Task<List<GetAllProductsResponse>>>(_productService.GetAllProductsWithPaginationAsync(page, limit));
+		return Ok(values);
+	}
+
+	[HttpGet("/GetAllProductsWithCategory")]
     public async Task<IActionResult> GetAllProductsWithCategory()
     {
         var values = await _mapper.Map<Task<List<GetAllProductsWithCategoryResponse>>>(_productService.GetAllProductsWithCategoriesAsync());

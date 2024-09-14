@@ -79,4 +79,9 @@ public class ProductRepository : GenericRepository<Product>, IProductRepository
     {
         return _context.Products.Where(p => p.CategoryId == (_context.Categories.Where(c => c.Name == "Hamburger").Select(c => c.Id).FirstOrDefault())).Average(p => p.Price);
     }
+
+	public async Task<List<Product>> GetAllProductsWithPaginationAsync(int page, int limit)
+	{
+		return await _context.Products.Include(p => p.Category).Skip(limit * (page - 1)).Take(limit).ToListAsync();
+	}
 }

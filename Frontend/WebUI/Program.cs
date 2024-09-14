@@ -1,6 +1,8 @@
+using Azure;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using System.Net;
 using WebUI;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,6 +27,8 @@ builder.Services.ConfigureApplicationCookie(option =>
 });*/
 
 var app = builder.Build();
+
+app.UseStatusCodePagesWithRedirects("/Errors/NotFoundPage/");
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
