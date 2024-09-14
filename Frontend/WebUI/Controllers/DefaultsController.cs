@@ -17,7 +17,7 @@ public class DefaultsController(IHttpClientFactory _httpClientFactory, IConfigur
         var responseMessage = await client.GetAsync(configuration.GetValue<string>("Endpoints:GetContact") + id.ToString());
 		var response = await responseMessage.Content.ReadAsStringAsync();
 		var jsonResponse = JsonConvert.DeserializeObject<GetContactResponse>(response);
-		ViewBag.Location = jsonResponse.Location;
+		ViewBag.Location = jsonResponse.GoogleMapSource;
 		return View();
     }
 
