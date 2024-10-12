@@ -14,7 +14,7 @@ public class _DefaultOurMenuComponentPartial(IHttpClientFactory _httpClientFacto
         int limit = 9;
         var responseMessage = await client.GetAsync(string.Format(_configuration.GetValue<string>("Endpoints:GetAllProductsWithPagination"), page, limit));
         var jsonData = await responseMessage.Content.ReadAsStringAsync();
-        var values = JsonConvert.DeserializeObject<List<GetAllProductsResponse>>(jsonData);
+        var values = JsonConvert.DeserializeObject<List<GetAllProductsWithCategoryResponse>>(jsonData);
         return View(values);
     }
 }

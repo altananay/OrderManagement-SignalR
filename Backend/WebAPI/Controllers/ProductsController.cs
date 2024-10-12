@@ -14,7 +14,7 @@ public class ProductsController(IProductService _productService, IMapper _mapper
     [HttpGet("/api/Products/Page/{page}/WithLimit/{limit}")]
 	public async Task<IActionResult> GetAllProductsWithPagination(int page, int limit)
 	{
-		var values = await _mapper.Map<Task<List<GetAllProductsResponse>>>(_productService.GetAllProductsWithPaginationAsync(page, limit));
+		var values = await _mapper.Map<Task<List<GetAllProductsWithCategoryResponse>>>(_productService.GetAllProductsWithPaginationAsync(page, limit));
 		return Ok(values);
 	}
 

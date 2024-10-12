@@ -1,4 +1,4 @@
-﻿@model List<GetAllProductsResponse>
+﻿@model List<GetAllProductsWithCategoryResponse>
 
 <section class="food_section layout_padding-bottom">
     <div class="container">
@@ -8,19 +8,13 @@
             </h2>
         </div>
 
-        <ul class="filters_menu">
-            <li class="active" data-filter="*">Tümü</li>
-            <li data-filter=".burger">Hamburger</li>
-            <li data-filter=".pizza">Pizza</li>
-            <li data-filter=".pasta">Makarna</li>
-            <li data-filter=".fries">Atıştırmalık</li>
-        </ul>
+        @await Component.InvokeAsync("_MenuCategoryFilterComponentPartial")
 
         <div class="filters-content">
             <div class="row grid">
                 @foreach (var item in Model)
                 {
-                    <div class="col-sm-6 col-lg-4 all @(item.CategoryName == "hamburger" ? "burger" : "pizza") ">
+                    <div class="col-sm-6 col-lg-4 all @item.CategoryName">
                         <div class="box">
                             <div>
                                 <div class="img-box">
