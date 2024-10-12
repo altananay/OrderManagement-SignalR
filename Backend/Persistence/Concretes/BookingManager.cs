@@ -1,11 +1,14 @@
 ﻿using Application.Abstractions;
+using Application.Aspects;
 using Application.Repositories;
+using Application.Validations.Validators;
 using Domain.Entities;
 
 namespace Persistence.Concretes;
 
 public class BookingManager(IBookingRepository repository) : IBookingService
 {
+    [ValidationAspect(typeof(CreateBookingValidator))]
     public async Task<Booking> AddAsync(Booking entity)
     {
         return await repository.AddAsync(entity);

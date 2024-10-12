@@ -1,4 +1,6 @@
 ﻿using Application.Facade;
+using Application.Validations.Validators;
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
@@ -10,6 +12,7 @@ public static class ApplicationServiceRegistration
     {
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
         services.AddScoped<EntityServices>();
+        services.AddValidatorsFromAssemblyContaining<CreateBookingValidator>();
         return services;
     }
 }

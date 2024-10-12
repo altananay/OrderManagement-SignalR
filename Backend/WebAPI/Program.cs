@@ -1,10 +1,14 @@
 using Application;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using Persistence;
 using WebAPI.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory()).ConfigureContainer<ContainerBuilder>(builder => builder.RegisterModule(new AutofacServiceRegistration()));
 
 builder.Services.AddCors(options =>
 {
