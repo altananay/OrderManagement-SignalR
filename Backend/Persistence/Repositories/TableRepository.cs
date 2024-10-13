@@ -29,4 +29,15 @@ public class TableRepository : GenericRepository<Table>, ITableRepository
     {
         return _context.Tables.ToList();
     }
+
+    public async Task ChangeTableStatus(Guid id, bool status)
+    {
+        var table = await _context.Tables.FindAsync(id);
+        if (table != null)
+        {
+            table.Status = status;
+            _context.SaveChanges();
+        }
+        //todo: when if condition is false throw exception or return custom result type
+    }
 }

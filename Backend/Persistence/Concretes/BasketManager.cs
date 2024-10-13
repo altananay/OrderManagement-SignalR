@@ -8,8 +8,10 @@ public class BasketManager(IBasketRepository _repository, IProductService produc
 {
     public async Task<Basket> AddAsync(Basket entity)
     {
+        //todo: if product count is greater than one basket totalPrice calculation is wrong
         entity.ProductPrice = productService.GetByIdAsync(entity.ProductId).Result.Price;
         entity.TotalPrice = entity.ProductPrice * entity.ProductCount;
+        //todo: after each request basket count is increased. Should only be one basket by tableId.
         return await _repository.AddAsync(entity);
     }
 

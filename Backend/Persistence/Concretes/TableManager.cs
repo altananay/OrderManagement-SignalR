@@ -46,4 +46,9 @@ public class TableManager(ITableRepository _repository) : ITableService
     {
         return _repository.GetAllTables();
     }
+
+    public async Task ChangeTableStatus(Guid id, bool status)
+    {
+        await _repository.ChangeTableStatus(id, status);
+    }
 }

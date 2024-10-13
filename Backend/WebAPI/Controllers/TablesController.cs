@@ -55,4 +55,11 @@ public class TablesController(ITableService _tableService, IMapper _mapper) : Co
         _tableService.Update(table);
         return Ok();
     }
+
+    [HttpPut("/api/Tables/UpdateStatus/{id}")]
+    public async Task<IActionResult> UpdateStatus([FromRoute] Guid id, [FromQuery] bool status)
+    {
+        await _tableService.ChangeTableStatus(id, status);
+        return Ok();
+    }
 }

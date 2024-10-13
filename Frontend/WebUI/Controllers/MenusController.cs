@@ -8,8 +8,11 @@ namespace WebUI.Controllers;
 
 public class MenusController(IHttpClientFactory _httpClientFactory, IConfiguration _configuration) : Controller
 {
-    public async Task<IActionResult> Index()
+    [Route("Menus/Index/{tableId:Guid}")]
+    [HttpGet]
+    public async Task<IActionResult> Index([FromRoute] Guid tableId)
     {
+        ViewBag.tableId = tableId;
         var client = _httpClientFactory.CreateClient();
         var responseMessage = await client.GetAsync(_configuration.GetValue<string>("Endpoints:GetAllProducts"));
         var jsonData = await responseMessage.Content.ReadAsStringAsync();

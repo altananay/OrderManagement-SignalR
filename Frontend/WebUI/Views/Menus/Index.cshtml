@@ -46,7 +46,7 @@
                                             <h6>
                                                 @item.Price
                                             </h6>
-                                            <a onclick="showProductId('@item.Id')">
+                                            <a onclick="showProductId('@item.Id', '@ViewBag.tableId')">
                                                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                                                 <g>
                                                 <g>
@@ -111,7 +111,7 @@
             </div>
             <div class="btn-box">
                 <a href="/Baskets/Index/">
-                    Sepete Git
+                    Sepete Git (@ViewBag.tableId)
                 </a>
             </div>
         </div>
@@ -122,9 +122,9 @@
     @await Component.InvokeAsync("_UILayoutScriptComponentPartial")
 
     <script>
-        function showProductId(productId) {
+        function showProductId(productId, tableId) {
             let productCount = 1;
-            let request = { productId, productCount };
+            let request = { productId, productCount, tableId };
             console.log(request);
             $.ajax({
                 type: 'POST',
