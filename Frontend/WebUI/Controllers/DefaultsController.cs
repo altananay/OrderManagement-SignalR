@@ -13,6 +13,7 @@ public class DefaultsController(IHttpClientFactory _httpClientFactory, IConfigur
     public async Task<IActionResult> Index()
     {
 		var client = _httpClientFactory.CreateClient();
+        //todo: get id from parameter
         Guid id = Guid.Parse("6bf0779e-dc6c-4c0f-82f0-af6cdc7f7daf");
         var responseMessage = await client.GetAsync(configuration.GetValue<string>("Endpoints:GetContact") + id.ToString());
 		var response = await responseMessage.Content.ReadAsStringAsync();

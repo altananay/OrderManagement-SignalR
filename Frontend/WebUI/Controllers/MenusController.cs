@@ -27,6 +27,10 @@ public class MenusController(IHttpClientFactory _httpClientFactory, IConfigurati
         var jsonData = JsonConvert.SerializeObject(request);
         StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
         var response = await client.PostAsync(_configuration.GetValue<string>("Endpoints:CreateBasket"), content);
+
+        var updateTableStatusClient = _httpClientFactory.CreateClient();
+        var updateTableStatusClientResponse = await updateTableStatusClient.GetAsync(string.Format(_configuration.GetValue<string>("Endpoints:UpdateTableStatus"), request.TableId, true));
+
         if (response.IsSuccessStatusCode)
         {
             return RedirectToAction("Index");

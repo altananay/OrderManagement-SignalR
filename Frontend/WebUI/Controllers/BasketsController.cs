@@ -6,10 +6,10 @@ namespace WebUI.Controllers;
 
 public class BasketsController(IHttpClientFactory _httpClientFactory, IConfiguration configuration) : Controller
 {
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(Guid id)
     {
         var client = _httpClientFactory.CreateClient();
-        var responseMessage = await client.GetAsync(configuration.GetValue<string>("Endpoints:GetAllBaskets"));
+        var responseMessage = await client.GetAsync(configuration.GetValue<string>("Endpoints:GetBasketByTableId") + id);
         if (responseMessage.IsSuccessStatusCode)
         {
             var jsonData = await responseMessage.Content.ReadAsStringAsync();
